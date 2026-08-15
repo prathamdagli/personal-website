@@ -49,7 +49,7 @@ export default function Home() {
             <span className="text-zinc-700 font-bold text-4xl">PD</span>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Experience Section */}
       <section className="max-w-4xl w-full mt-32">
@@ -121,6 +121,74 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Skills Section */}
+      <section className="max-w-4xl w-full mt-32">
+        <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
+          <span className="w-8 h-[2px] bg-emerald-500"></span>
+          Skills
+        </h3>
+        <div className="flex flex-wrap gap-3">
+          {[
+            'Python', 'C++', 'Java', 'SQL',
+            'Logistic Regression', 'XGBoost', 'Random Forest', 'KNN', 'SVM', 'scikit-learn',
+            'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'TF-IDF',
+            'FastAPI', 'Firebase', 'Git', 'GitHub', 'Next.js', 'React'
+          ].map(skill => (
+            <span key={skill} className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full text-zinc-300 font-medium hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-default">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Education & Certifications */}
+      <section className="max-w-4xl w-full mt-32 mb-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
+            <span className="w-8 h-[2px] bg-blue-500"></span>
+            Education
+          </h3>
+          <div className="space-y-8 pl-4 border-l border-zinc-800">
+            <div className="relative pl-6">
+              <div className="absolute w-3 h-3 bg-zinc-700 rounded-full -left-[6.5px] top-2 border-2 border-zinc-950"></div>
+              <h4 className="text-lg font-semibold text-zinc-200">B.Tech, Computer Engineering</h4>
+              <p className="text-blue-400 font-medium">Pandit Deendayal Energy University</p>
+              <p className="text-zinc-500 text-sm mt-1">CGPA: 9.57 | Expected May 2028</p>
+            </div>
+            <div className="relative pl-6">
+              <div className="absolute w-3 h-3 bg-zinc-700 rounded-full -left-[6.5px] top-2 border-2 border-zinc-950"></div>
+              <h4 className="text-lg font-semibold text-zinc-200">Class XII, Science</h4>
+              <p className="text-zinc-400 font-medium">Sharda Mandir Modern High School</p>
+              <p className="text-zinc-500 text-sm mt-1">97.7 percentile | May 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
+            <span className="w-8 h-[2px] bg-orange-500"></span>
+            Certifications
+          </h3>
+          <ul className="space-y-4">
+            {[
+              'Fundamentals of Deep Learning — NVIDIA',
+              'AWS APAC Solutions Architecture Job Simulation',
+              'NumPy and Pandas in Python — Infosys Springboard',
+              'Python 101 for Data Science — Cognitive Class, IBM'
+            ].map(cert => (
+              <li key={cert} className="flex items-start gap-3 text-zinc-400">
+                <span className="text-orange-500 mt-1">✦</span>
+                <span className="leading-snug">{cert}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer className="w-full py-8 border-t border-zinc-900 mt-auto text-center text-zinc-600 text-sm">
+        <p>© {new Date().getFullYear()} Pratham Dagli. All rights reserved.</p>
+      </footer>
     </main>
   );
 }

@@ -59,7 +59,7 @@ export default function Home() {
         <div className="w-64 h-64 md:w-80 md:h-80 relative flex-shrink-0 group">
           <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[2rem] rotate-6 opacity-20 group-hover:opacity-40 group-hover:rotate-12 transition-all duration-500 blur-2xl"></div>
           <div className="w-full h-full bg-zinc-900 border border-zinc-800 rounded-[2rem] overflow-hidden flex items-center justify-center relative shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-            <img src="/profile.jpg" alt="Pratham Dagli" className="w-full h-full object-cover" />
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="Pratham Dagli" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>

@@ -4,8 +4,22 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-50 font-[family-name:var(--font-geist-sans)] flex flex-col items-center justify-center p-8 sm:p-20">
-      <div className="max-w-4xl w-full flex flex-col md:flex-row items-center gap-12">
+    <main className="min-h-screen bg-zinc-950 text-zinc-50 font-[family-name:var(--font-geist-sans)] flex flex-col items-center p-8 sm:p-20 relative">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 w-full bg-zinc-950/80 backdrop-blur-md z-50 border-b border-zinc-900/50">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <span className="text-xl font-bold text-white tracking-tight">PD<span className="text-indigo-500">.</span></span>
+          <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
+            <a href="#about" className="hover:text-indigo-400 transition-colors">About</a>
+            <a href="#experience" className="hover:text-indigo-400 transition-colors">Experience</a>
+            <a href="#projects" className="hover:text-indigo-400 transition-colors">Projects</a>
+            <a href="#skills" className="hover:text-indigo-400 transition-colors">Skills</a>
+            <a href="#education" className="hover:text-indigo-400 transition-colors">Education</a>
+          </div>
+        </div>
+      </nav>
+
+      <div id="about" className="max-w-4xl w-full flex flex-col md:flex-row items-center gap-12 mt-16">
         {/* Profile Info */}
         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6">
           <div className="space-y-4">
@@ -52,7 +66,7 @@ export default function Home() {
       </div>
 
       {/* Experience Section */}
-      <section className="max-w-4xl w-full mt-32">
+      <section id="experience" className="max-w-4xl w-full mt-32 scroll-mt-24">
         <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
           <span className="w-8 h-[2px] bg-indigo-500"></span>
           Experience
@@ -89,7 +103,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="max-w-4xl w-full mt-32 mb-20">
+      <section id="projects" className="max-w-4xl w-full mt-32 mb-20 scroll-mt-24">
         <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
           <span className="w-8 h-[2px] bg-purple-500"></span>
           Featured Projects
@@ -119,10 +133,46 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-emerald-500/50 transition-colors group">
+            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-emerald-400 transition-colors">Creditscout</h4>
+            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
+              Credit Scoring for the Unbanked. Uses transaction history to generate a credit-readiness score for people without formal banking records.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Next.js', 'FastAPI', 'Python', 'Firebase', 'XGBoost'].map(tech => (
+                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-blue-500/50 transition-colors group">
+            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-blue-400 transition-colors">Jobwemet</h4>
+            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
+              Skill Intelligence System. Full-stack platform for skill-gap analysis with personalized learning recommendations and an AI-powered assistant.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['React', 'FastAPI', 'Python', 'Chart.js', 'Git'].map(tech => (
+                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-rose-500/50 transition-colors group md:col-span-2">
+            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-rose-400 transition-colors">Formula 1 Data Analysis</h4>
+            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
+              Analyzed 500+ F1 races to explore performance trends and race strategy patterns using Python visualization libraries.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Python', 'Pandas', 'Matplotlib', 'Seaborn'].map(tech => (
+                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       {/* Skills Section */}
-      <section className="max-w-4xl w-full mt-32">
+      <section id="skills" className="max-w-4xl w-full mt-32 scroll-mt-24">
         <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
           <span className="w-8 h-[2px] bg-emerald-500"></span>
           Skills
@@ -142,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* Education & Certifications */}
-      <section className="max-w-4xl w-full mt-32 mb-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section id="education" className="max-w-4xl w-full mt-32 mb-32 grid grid-cols-1 md:grid-cols-2 gap-12 scroll-mt-24">
         <div>
           <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
             <span className="w-8 h-[2px] bg-blue-500"></span>
@@ -173,8 +223,10 @@ export default function Home() {
             {[
               'Fundamentals of Deep Learning — NVIDIA',
               'AWS APAC Solutions Architecture Job Simulation',
+              'Deloitte Australia Technology Job Simulation',
               'NumPy and Pandas in Python — Infosys Springboard',
-              'Python 101 for Data Science — Cognitive Class, IBM'
+              'Python 101 for Data Science — Cognitive Class, IBM',
+              'Basics of Finance — HP LIFE'
             ].map(cert => (
               <li key={cert} className="flex items-start gap-3 text-zinc-400">
                 <span className="text-orange-500 mt-1">✦</span>

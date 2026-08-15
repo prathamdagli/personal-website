@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pratham Dagli - Personal Portfolio
 
-## Getting Started
+A sleek, responsive, and modern personal portfolio for **Pratham Dagli** — an AI/ML Engineer & Full-Stack Developer. Built with Next.js and Tailwind CSS, featuring a beautiful dark mode UI, smooth scrolling navigation, and interactive project cards.
 
-First, run the development server:
+## Features
+- **Hero Section:** Dynamic glowing effects, gradient typography, and quick links.
+- **Experience Timeline:** Detailed history of internships and roles.
+- **Projects Grid:** Showcasing featured AI/ML and full-stack projects.
+- **Skills Matrix:** A comprehensive list of technical tools and languages.
+- **Education & Certifications:** Academic background and professional certificates.
+
+## Tech Stack
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS (Dark Mode Glassmorphism)
+- **Icons:** React Icons (`react-icons`) & Lucide React (`lucide-react`)
+- **Language:** TypeScript
+
+## Running Locally
+
+First, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/prathamdagli/personal-website.git
+cd personal-website
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customization
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To add your own profile picture, place a square image named `profile.jpg` in the `public/` directory and update the `src/app/page.tsx` `<img />` tag.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Designed & built for Pratham Dagli.*

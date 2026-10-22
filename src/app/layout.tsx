@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import "./experience.css";
 import "./phase.css";
+import "./hero.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",

@@ -24,14 +24,15 @@ export function Hero() {
   const portraitY = useTransform(scrollYProgress, [0, 1], [0, 110]);
   const portraitOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.15]);
   return (
-    <section className="cover" ref={root} aria-labelledby="cover-title">
-      <HeroSignature />
+    <section className="cover cover-composed" ref={root} aria-labelledby="cover-title">
       <div className="cover-topline">
-        <span>AI ENGINEERING & PROJECTS / 2026</span>
+        <span>AI Engineering</span>
         <span>
           AHMEDABAD, INDIA <span className="red-dot" />
         </span>
       </div>
+      <div className="cover-artwork">
+      <HeroSignature />
       <div className="cover-name">
         <h1 id="cover-title" aria-label="Pratham Dagli">
           <motion.span
@@ -79,13 +80,8 @@ export function Hero() {
           />
         </motion.div>
       </motion.div>
-      <div className="cover-left">
-        <span className="eyebrow">COMPUTER ENGINEERING / PDEU</span>
-        <p>
-          AI Engineering.
-          <br />
-          <span>Computer Engineering, class of 2028.</span>
-        </p>
+      </div>
+      <div className="cover-actionbar">
         <p className="availability">
           <span aria-hidden="true" />
           {siteConfig.availability}
@@ -110,18 +106,6 @@ export function Hero() {
           <ArrowDown size={14} />
         </a>
         <span className="cover-edition">SELECTED PROJECTS / 2026</span>
-        <Link
-          href="/work"
-          className="round-cta"
-          aria-label="Explore selected projects"
-        >
-          <ArrowUpRight size={28} />
-          <span>
-            EXPLORE
-            <br />
-            PROJECTS
-          </span>
-        </Link>
       </div>
     </section>
   );

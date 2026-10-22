@@ -1,0 +1,111 @@
+/* The artwork and supporting actions occupy separate layout rows. */
+.cover.cover-composed {
+  height: auto;
+  min-height: 100svh;
+  max-height: none;
+  padding: 136px 4% 28px;
+  display: flex;
+  flex-direction: column;
+}
+.cover-composed:after { display: none; }
+.cover-composed .cover-topline {
+  position: static;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.cover-artwork {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(390px, calc(100svh - 325px), 730px);
+  min-height: 390px;
+  margin-top: 30px;
+}
+.cover-composed .cover-name {
+  top: 7%;
+  left: 0;
+  right: 0;
+}
+.cover-composed .cover-name h1 {
+  font-size: clamp(90px, min(17.2vw, 25svh), 290px);
+  line-height: 0.82;
+}
+.cover-composed .cover-surname { margin-top: 22px; }
+.cover-composed .cover-portrait {
+  inset: 0;
+  mask-image: linear-gradient(#000 0%, #000 80%, transparent 100%);
+}
+.cover-composed .cover-portrait img {
+  height: 122%;
+  width: auto;
+  left: 53%;
+  bottom: -22%;
+}
+.cover-artwork .hero-signature {
+  top: -12%;
+  right: 7%;
+}
+.cover-actionbar {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.cover-actionbar .availability {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.cover-actionbar .hero-actions {
+  margin: 0;
+  max-width: none;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+.cover-actionbar .button { font-size: 14px; }
+.cover-composed .cover-bottom {
+  position: static;
+  align-items: center;
+  min-height: 44px;
+  margin-top: auto;
+}
+.cover-composed .scroll-cue { min-height: 44px; }
+.cover-composed .scroll-rule { height: 22px; }
+@media (max-width: 760px) {
+  .cover.cover-composed { padding: 112px 20px 20px; }
+  .cover-composed .cover-topline { font-size: 11px; gap: 20px; }
+  .cover-composed .cover-topline > span { max-width: none; }
+  .cover-composed .cover-topline > span:last-child { font-size: 10px; }
+  .cover-artwork {
+    height: clamp(380px, 57svh, 560px);
+    min-height: 380px;
+    margin-top: 28px;
+  }
+  .cover-composed .cover-name { top: 9%; }
+  .cover-composed .cover-name h1 {
+    font-size: 18vw;
+    line-height: 0.88;
+  }
+  .cover-composed .cover-surname { margin-top: 18px; }
+  .cover-composed .cover-portrait { inset: 38px -40px 0; }
+  .cover-composed .cover-portrait img { height: 112%; bottom: -12%; left: 52%; }
+  .cover-actionbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 22px 0 14px;
+  }
+  .cover-actionbar .availability { max-width: none; font-size: 13px; }
+  .cover-actionbar .hero-actions { width: 100%; gap: 10px; }
+  .cover-actionbar .button { padding: 12px; font-size: 12px; gap: 12px; }
+  .cover-composed .cover-edition { display: none; }
+}

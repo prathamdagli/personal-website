@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   motion,
   useReducedMotion,
@@ -16,6 +16,34 @@ import { HeroSignature } from "./signature-prototypes";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const artwork = useRef<HTMLDivElement>(null);
+  const firstName = useRef<HTMLSpanElement>(null);
+  const surname = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const stage = artwork.current;
+    if (!stage) return;
+    let active = true;
+    const alignPortrait = () => {
+      if (!active || !firstName.current || !surname.current) return;
+      const bounds = stage.getBoundingClientRect();
+      const mEdge = firstName.current.getBoundingClientRect().right;
+      const dEdge = surname.current.getBoundingClientRect().left;
+      const gap = Math.max(0, dEdge - mEdge);
+      // The cutout's visible silhouette is 583px wide in a 1355px-high image.
+      const height = Math.min(bounds.height, Math.max(300, (gap - 24) / (583 / 1355)));
+      const center = (mEdge + dEdge) / 2 - bounds.left;
+      stage.style.setProperty("--portrait-center", `${center - height * (17 / 1355)}px`);
+      stage.style.setProperty("--portrait-height", `${height}px`);
+    };
+    const observer = new ResizeObserver(alignPortrait);
+    observer.observe(stage);
+    alignPortrait();
+    void document.fonts.ready.then(alignPortrait);
+    return () => {
+      active = false;
+      observer.disconnect();
+    };
+  }, []);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: root,
@@ -31,7 +59,7 @@ export function Hero() {
           AHMEDABAD, INDIA <span className="red-dot" />
         </span>
       </div>
-      <div className="cover-artwork">
+      <div className="cover-artwork" ref={artwork}>
       <HeroSignature />
       <div className="cover-name">
         <h1 id="cover-title" aria-label="Pratham Dagli">
@@ -43,7 +71,7 @@ export function Hero() {
               ease: motionTokens.ease.enter,
             }}
           >
-            <span aria-hidden="true">PRATHAM</span>
+            <span ref={firstName} aria-hidden="true">PRATHAM</span>
           </motion.span>
           <motion.span
             className="cover-surname"
@@ -55,7 +83,7 @@ export function Hero() {
               ease: motionTokens.ease.enter,
             }}
           >
-            <span aria-hidden="true">DAGLI</span>
+            <span ref={surname} aria-hidden="true">DAGLI</span>
           </motion.span>
         </h1>
       </div>

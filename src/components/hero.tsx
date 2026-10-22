@@ -29,7 +29,7 @@ export function Hero() {
       const mEdge = firstName.current.getBoundingClientRect().right;
       const dEdge = surname.current.getBoundingClientRect().left;
       // Keep the agreed midpoint, with portrait scale independent of the text gap.
-      const height = bounds.height * 1.12;
+      const height = bounds.height * 1.22;
       const center = (mEdge + dEdge) / 2 - bounds.left;
       stage.style.setProperty("--portrait-center", `${center - height * (17 / 1355)}px`);
       stage.style.setProperty("--portrait-height", `${height}px`);

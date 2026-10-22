@@ -19,7 +19,7 @@ export default function AboutPage() {
       <PageIntro
         className="about-intro"
         eyebrow="ABOUT / PRATHAM DAGLI"
-        lines={["The person.", "The practice."]}
+        lines={["The person", "behind the work."]}
         description={
           <>
             Computer Engineering at PDEU.

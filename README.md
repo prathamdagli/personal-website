@@ -1,6 +1,6 @@
 # Pratham Dagli — Personal Portfolio
 
-A complete portfolio built with Next.js 16, React 19, and TypeScript. An editorial portrait cover, ink-and-ivory layouts, restrained vermilion accents, scroll-linked portrait motion, and project-specific system illustrations.
+A complete portfolio built with Next.js 16, React 19, and TypeScript. A portrait cover, consistent graphite surfaces, a cool blue accent, compact project entries, and interactive system walkthroughs.
 
 ## Pages
 
@@ -27,7 +27,7 @@ The contact form validates inputs and opens a `mailto:` draft in the visitor's e
 
 ## Accessibility and performance
 
-Semantic landmarks, keyboard focus styles, a skip link, mobile navigation with a focus loop and Escape support, reduced-motion preferences, optimized portrait images, and statically generated content pages. Project covers are labeled product interface studies; Creditscout uses an actual capture of its public interface. All five case studies include button-operated workflow walkthroughs. About includes an indexed experience accordion and skill drawers; Contact includes a magnetic email link and channel selection. See `docs/art-direction.md` for asset sources, motion behavior, and the portrait treatment prompt.
+Semantic landmarks, keyboard focus styles, a skip link, mobile navigation with a focus loop and Escape support, reduced-motion preferences, optimized portrait images, and statically generated content pages. Projects use compact entries with explicit case-study and repository links, without screenshots or decorative covers. All five case studies include button-operated workflow walkthroughs. About includes an indexed experience accordion and skill drawers; Contact includes a magnetic email link and channel selection. See `docs/art-direction.md` for asset sources, motion behavior, and the portrait treatment prompt.
 
 ## Deployment
 

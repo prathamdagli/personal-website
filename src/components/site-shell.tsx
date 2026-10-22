@@ -146,12 +146,8 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div className="footer-display" aria-hidden="true">
-        STAY CURIOUS.
-      </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} PRATHAM DAGLI</span>
-        <span>BUILT WITH INTENTION.</span>
         <span>AHMEDABAD, INDIA</span>
       </div>
     </footer>
@@ -165,8 +161,8 @@ export function ContactCta() {
           <span className="eyebrow">HAVE AN IDEA OR AN OPPORTUNITY?</span>
           <span className="eyebrow">LET’S MAKE THE CONNECTION.</span>
         </div>
-        <Link href="/contact" className="big-contact" data-cursor="SAY HI">
-          <span>LET’S TALK</span>
+        <Link href="/contact" className="big-contact">
+          <span>Let’s build something.</span>
           <ArrowUpRight aria-hidden="true" />
         </Link>
         <div className="contact-cta-bottom">

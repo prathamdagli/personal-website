@@ -19,11 +19,11 @@ function Word({
   const color = useTransform(
     progress,
     [start, start + 0.15],
-    ["#b6b1a6", "#20201e"],
+    ["#718096", "#eef1f5"],
   );
   const reduced = useReducedMotion();
   return (
-    <motion.span style={{ color: reduced ? "#20201e" : color }}>
+    <motion.span style={{ color: reduced ? "#eef1f5" : color }}>
       {children}{" "}
     </motion.span>
   );
@@ -56,29 +56,5 @@ export function ScrollStatement() {
         ),
       )}
     </h2>
-  );
-}
-export function DisciplineRibbon() {
-  const ref = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
-  return (
-    <section
-      ref={ref}
-      className="discipline-ribbon"
-      aria-label="Intelligence, interfaces, infrastructure"
-    >
-      <div className="container ribbon-caption">
-        <span>THE THREAD THROUGH THE WORK</span>
-        <span>THINK / BUILD / CONNECT</span>
-      </div>
-      <motion.div style={{ x: reduced ? 0 : x }} aria-hidden="true">
-        INTELLIGENCE <i>↗</i> INTERFACES <i>↗</i> INFRASTRUCTURE <i>↗</i>
-      </motion.div>
-    </section>
   );
 }

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/portfolio";
-import { ProjectVisual } from "@/components/project-visual";
 import { ContactCta } from "@/components/site-shell";
 import { ProjectLab } from "@/components/project-lab";
 export function generateStaticParams() {
@@ -49,7 +48,6 @@ export default async function ProjectPage({
           </h1>
           <p>{p.short}</p>
         </div>
-        <ProjectVisual slug={p.slug} large />
         <nav className="case-chapter-nav" aria-label="Case study chapters">
           <span>PROJECT 0{index + 1}</span>
           <a href="#context">01 / Context</a>

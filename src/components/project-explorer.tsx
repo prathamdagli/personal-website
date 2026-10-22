@@ -38,7 +38,7 @@ export function ProjectExplorer() {
           {visible.length} project{visible.length === 1 ? "" : "s"}
         </span>
       </div>
-      <motion.div layout={!reduced} className="project-grid work-grid">
+      <motion.div layout={!reduced} className="work-list">
         <AnimatePresence mode="popLayout">
           {visible.map((p) => (
             <ProjectCard key={p.slug} project={p} index={projects.indexOf(p)} />

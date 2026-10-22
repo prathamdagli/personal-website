@@ -13,7 +13,7 @@ export default function WorkPage() {
       <PageIntro
         className="work-intro"
         eyebrow="THE PROJECT INDEX / 01—05"
-        lines={["Ideas, made", "into systems."]}
+        lines={["Ideas into", "working systems."]}
         description={
           <p>
             Five explorations in intelligence, interfaces, and the connections

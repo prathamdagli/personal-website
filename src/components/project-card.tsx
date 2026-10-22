@@ -1,9 +1,10 @@
 "use client";
+
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { Project } from "@/lib/portfolio";
-import { ProjectVisual } from "./project-visual";
+import { FaGithub } from "react-icons/fa";
+import type { Project } from "@/lib/portfolio";
 
 export function ProjectCard({
   project,
@@ -17,38 +18,47 @@ export function ProjectCard({
     <motion.article
       id={`project-${project.slug}`}
       layout={!reduced}
-      initial={{ opacity: 0, y: reduced ? 0 : 65 }}
+      initial={{ opacity: 0, y: reduced ? 0 : 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: reduced ? 0 : -20 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="archive-project product-chapter"
+      exit={{ opacity: 0, y: reduced ? 0 : -12 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className="project-entry"
     >
-      <div className="archive-project-info">
-        <span className="eyebrow">
-          0{index + 1} / {project.category.toUpperCase()}
-        </span>
+      <span className="project-entry-number">0{index + 1}</span>
+      <div className="project-entry-content">
+        <span className="eyebrow">{project.category}</span>
         <h2>
-          <Link href={`/work/${project.slug}`}>{project.title}</Link>
+          <Link href={`/work/${project.slug}`}>
+            <span>{project.title}</span>
+            <ArrowUpRight aria-hidden="true" size={22} />
+          </Link>
         </h2>
-        <p>{project.short}</p>
-        <div className="archive-stack">
-          {project.stack.map((s) => (
-            <span key={s}>{s}</span>
+        <p>{project.description}</p>
+        <div className="project-entry-stack" aria-label="Technologies">
+          {project.stack.map((tool) => (
+            <span key={tool}>{tool}</span>
           ))}
         </div>
-        <Link href={`/work/${project.slug}`} className="underlined-link">
-          EXPLORE PROJECT <ArrowUpRight size={18} />
-        </Link>
       </div>
-      <Link
-        href={`/work/${project.slug}`}
-        className="archive-project-art"
-        data-cursor="EXPLORE"
-        aria-label={`Explore ${project.title}`}
-      >
-        <ProjectVisual slug={project.slug} />
-      </Link>
+      <div className="project-entry-actions">
+        <Link href={`/work/${project.slug}`}>
+          Case study <ArrowUpRight size={17} />
+        </Link>
+        {project.live && (
+          <a href={project.live} target="_blank" rel="noreferrer">
+            Live project <ArrowUpRight size={15} />
+          </a>
+        )}
+        {project.repo && (
+          <a href={project.repo} target="_blank" rel="noreferrer">
+            <FaGithub size={16} /> GitHub <ArrowUpRight size={15} />
+          </a>
+        )}
+        {!project.repo && (
+          <span className="project-source-note">Source not published</span>
+        )}
+      </div>
     </motion.article>
   );
 }

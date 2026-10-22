@@ -4,11 +4,8 @@ import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { experience, projects } from "@/lib/portfolio";
 import { Hero } from "@/components/hero";
 import { ContactCta } from "@/components/site-shell";
-import { ProjectVisual } from "@/components/project-visual";
-import {
-  ScrollStatement,
-  DisciplineRibbon,
-} from "@/components/scroll-statement";
+import { ProjectCard } from "@/components/project-card";
+import { ScrollStatement } from "@/components/scroll-statement";
 
 export default function Home() {
   return (
@@ -51,65 +48,15 @@ export default function Home() {
         </div>
         <div className="work-heading" data-reveal>
           <h2>
-            SELECTED
-            <br />
-            <span>PROJECTS.</span>
+            Selected work<span>.</span>
           </h2>
           <Link href="/work" className="underlined-link">
             THE COMPLETE INDEX <ArrowUpRight size={18} />
           </Link>
         </div>
-        <Link
-          href={`/work/${projects[0].slug}`}
-          className="featured-project"
-          data-reveal
-          data-cursor="EXPLORE"
-        >
-          <div className="featured-project-media">
-            <ProjectVisual slug={projects[0].slug} />
-            <span className="project-circle">
-              <ArrowUpRight size={24} />
-            </span>
-          </div>
-          <div className="featured-project-caption">
-            <div>
-              <span className="eyebrow">01 / APPLIED AI</span>
-              <h3>ComplaintTracker AI</h3>
-            </div>
-            <p>
-              Making sense of every complaint.
-              <br />
-              From intake to resolution.
-            </p>
-            <span className="project-caption-stack">REACT / FASTAPI / NLP</span>
-          </div>
-        </Link>
-        <div className="staggered-projects">
-          {projects.slice(1, 3).map((p, i) => (
-            <Link
-              key={p.slug}
-              href={`/work/${p.slug}`}
-              className="secondary-project"
-              data-reveal
-              data-cursor="EXPLORE"
-            >
-              <div className="secondary-project-media">
-                <ProjectVisual slug={p.slug} />
-                <span className="project-circle">
-                  <ArrowUpRight size={21} />
-                </span>
-              </div>
-              <div className="secondary-project-caption">
-                <span className="eyebrow">
-                  0{i + 2} / {p.category.toUpperCase()}
-                </span>
-                <h3>
-                  {p.title}
-                  <ArrowUpRight size={22} />
-                </h3>
-                <p>{p.short}</p>
-              </div>
-            </Link>
+        <div className="home-project-list">
+          {projects.slice(0, 3).map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
         <div className="work-index-link">
@@ -122,7 +69,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <DisciplineRibbon />
       <section className="practice-section">
         <div className="container practice-layout">
           <div className="practice-photo" data-reveal>
@@ -141,10 +87,9 @@ export default function Home() {
           <div className="practice-copy" data-reveal>
             <span className="eyebrow">03 / THE PRACTICE</span>
             <h2>
-              A STUDENT.
-              <br />A BUILDER.
+              Curious in theory.
               <br />
-              <span>ALWAYS BOTH.</span>
+              <span>Practical by nature.</span>
             </h2>
             <p>
               I’m not interested in a model that only lives in a notebook. I
@@ -169,9 +114,7 @@ export default function Home() {
         </div>
         <div className="career-heading" data-reveal>
           <h2>
-            BUILDING
-            <br />
-            <span>IN GOOD COMPANY.</span>
+            Learning in good company<span>.</span>
           </h2>
           <Link href="/about#experience" className="underlined-link">
             FULL EXPERIENCE <ArrowUpRight size={18} />

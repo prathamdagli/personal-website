@@ -6,8 +6,8 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <div
       style={{
-        background: "#161616",
-        color: "#e8e5dd",
+        background: "#101216",
+        color: "#eef1f5",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -21,7 +21,7 @@ export default function OpenGraphImage() {
           display: "flex",
           justifyContent: "space-between",
           fontSize: 18,
-          color: "#a3a09b",
+          color: "#a1aab6",
           letterSpacing: 3,
         }}
       >
@@ -39,16 +39,16 @@ export default function OpenGraphImage() {
         }}
       >
         <span style={{ fontSize: 118 }}>PRATHAM</span>
-        <span style={{ color: "#a3a09b", fontSize: 118 }}>DAGLI.</span>
+        <span style={{ color: "#8eacff", fontSize: 118 }}>DAGLI.</span>
       </div>
       <div
         style={{
           display: "flex",
           marginTop: "auto",
-          borderTop: "1px solid #3b3a37",
+          borderTop: "1px solid #303843",
           paddingTop: 25,
           fontSize: 22,
-          color: "#a3a09b",
+          color: "#a1aab6",
         }}
       >
         AI / ML · FULL-STACK DEVELOPMENT · PDEU

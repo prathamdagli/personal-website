@@ -27,7 +27,8 @@
   right: 0;
 }
 .cover-composed .cover-name h1 {
-  font-size: clamp(90px, min(17.2vw, 25svh), 290px);
+  /* Reserve breathing room for the portrait after the complete first name. */
+  font-size: clamp(90px, min(12.5vw, 25svh), 290px);
   line-height: 0.82;
 }
 .cover-composed .cover-surname { margin-top: 22px; }
@@ -38,7 +39,7 @@
 .cover-composed .cover-portrait img {
   height: 122%;
   width: auto;
-  left: 53%;
+  left: 64%;
   bottom: -22%;
 }
 .cover-artwork .hero-signature {
@@ -96,7 +97,8 @@
     line-height: 0.88;
   }
   .cover-composed .cover-surname { margin-top: 18px; }
-  .cover-composed .cover-portrait { inset: 38px -40px 0; }
+  /* On narrow screens, start the portrait below the solid first-name line. */
+  .cover-composed .cover-portrait { inset: 110px -40px 0; }
   .cover-composed .cover-portrait img { height: 112%; bottom: -12%; left: 52%; }
   .cover-actionbar {
     flex-direction: column;

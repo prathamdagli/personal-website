@@ -19,7 +19,6 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
   const portraitY = useTransform(scrollYProgress, [0, 1], [0, 110]);
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const portraitOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.15]);
   return (
     <section className="cover" ref={root} aria-labelledby="cover-title">
@@ -29,10 +28,7 @@ export function Hero() {
           AHMEDABAD, INDIA <span className="red-dot" />
         </span>
       </div>
-      <motion.div
-        className="cover-name"
-        style={reduced ? undefined : { y: titleY }}
-      >
+      <div className="cover-name">
         <h1 id="cover-title">
           <motion.span
             initial={reduced ? false : { y: 70, opacity: 0 }}
@@ -54,7 +50,7 @@ export function Hero() {
             DAGLI
           </motion.span>
         </h1>
-      </motion.div>
+      </div>
       <motion.div
         className="cover-portrait"
         style={reduced ? undefined : { y: portraitY, opacity: portraitOpacity }}

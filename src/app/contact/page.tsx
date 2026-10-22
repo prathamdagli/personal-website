@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ContactComposerLink, ContactForm } from "@/components/contact-form";
 import { ContactOrbit } from "@/components/contact-orbit";
 import { PageIntro } from "@/components/page-intro";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -38,7 +39,11 @@ export default function ContactPage() {
         </div>
       </section>
       <div className="container contact-end">
-        <span>PRATHAM DAGLI / COMPUTER ENGINEERING, PDEU</span>
+        <span>
+          {siteConfig.location} · {siteConfig.timezone}
+          <br />
+          Pratham Dagli / Computer Engineering, PDEU
+        </span>
         <ArrowUpRight size={48} aria-hidden="true" />
       </div>
     </main>

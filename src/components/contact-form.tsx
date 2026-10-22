@@ -30,6 +30,11 @@ export function ContactComposerLink() {
 }
 export function CopyEmail() {
   const [status, setStatus] = useState("");
+  useEffect(() => {
+    if (!status) return;
+    const timer = window.setTimeout(() => setStatus(""), 4000);
+    return () => window.clearTimeout(timer);
+  }, [status]);
   async function copy() {
     try {
       await navigator.clipboard.writeText(email);
@@ -44,7 +49,9 @@ export function CopyEmail() {
         {status === "Email copied" ? <Check size={15} /> : <Copy size={15} />}
         Copy email address
       </button>
-      <span role="status">{status}</span>
+      <span role="status" className={status ? "toast" : undefined}>
+        {status}
+      </span>
     </div>
   );
 }
@@ -54,6 +61,11 @@ export function ContactForm() {
     typeof prepareContactDraft
   > | null>(null);
   const [copyStatus, setCopyStatus] = useState("");
+  const [sending, setSending] = useState(false);
+  const [delivery, setDelivery] = useState<{
+    kind: "success" | "error";
+    message: string;
+  } | null>(null);
   const draftPanel = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   useEffect(() => {
@@ -64,8 +76,9 @@ export function ContactForm() {
       block: "nearest",
     });
   }, [draft, reduced]);
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     const nameInput = event.currentTarget.elements.namedItem(
       "name",
     ) as HTMLInputElement;
@@ -85,6 +98,50 @@ export function ContactForm() {
       return;
     }
     const data = new FormData(event.currentTarget);
+    const action = (event.nativeEvent as SubmitEvent).submitter?.getAttribute(
+      "value",
+    );
+    if (action !== "draft") {
+      setSending(true);
+      setDelivery(null);
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: data.get("name"),
+            email: data.get("email"),
+            message: data.get("message"),
+            topic,
+            company: data.get("company"),
+          }),
+          signal: AbortSignal.timeout(15000),
+        });
+        const result = await response.json();
+        if (!response.ok)
+          throw new Error(
+            result.error || "Your message could not be sent. Please try again.",
+          );
+        setDelivery({
+          kind: "success",
+          message: "Message sent. Thank you for reaching out.",
+        });
+        setDraft(null);
+        form.reset();
+        setTopic("A project idea");
+      } catch (error) {
+        setDelivery({
+          kind: "error",
+          message:
+            error instanceof Error && error.name !== "TimeoutError"
+              ? error.message
+              : "The email service is taking too long. Please try again or prepare an email draft.",
+        });
+      } finally {
+        setSending(false);
+      }
+      return;
+    }
     setDraft(
       prepareContactDraft(
         {
@@ -119,9 +176,16 @@ export function ContactForm() {
       onChange={() => {
         setDraft(null);
         setCopyStatus("");
+        setDelivery(null);
       }}
     >
       <h2>What are you thinking?</h2>
+      <div className="contact-honeypot" aria-hidden="true">
+        <label>
+          Company website
+          <input name="company" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
       <fieldset>
         <legend>I’m reaching out about</legend>
         <div className="topic-options">
@@ -177,14 +241,35 @@ export function ContactForm() {
       </label>
       <div className="form-bottom">
         <p>
-          Prepare a draft, then choose Gmail, Outlook, or your email app.
-          <br />
-          You’re in control of sending it.
+          Send a message directly, or prepare a draft for your own email app.
         </p>
-        <button className="button button-primary" type="submit">
-          Prepare email <ArrowUpRight size={17} />
+        <button
+          className="button button-primary"
+          type="submit"
+          name="action"
+          value="send"
+          disabled={sending}
+        >
+          {sending ? "Sending…" : "Send message"} <ArrowUpRight size={17} />
         </button>
       </div>
+      <button
+        type="submit"
+        name="action"
+        value="draft"
+        className="text-link draft-fallback"
+        disabled={sending}
+      >
+        Or prepare an email draft <ArrowUpRight size={15} />
+      </button>
+      {delivery && (
+        <p
+          className={`delivery-status delivery-${delivery.kind}`}
+          role={delivery.kind === "error" ? "alert" : "status"}
+        >
+          {delivery.message}
+        </p>
+      )}
       {draft && (
         <section
           ref={draftPanel}

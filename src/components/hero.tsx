@@ -28,9 +28,8 @@ export function Hero() {
       const bounds = stage.getBoundingClientRect();
       const mEdge = firstName.current.getBoundingClientRect().right;
       const dEdge = surname.current.getBoundingClientRect().left;
-      const gap = Math.max(0, dEdge - mEdge);
-      // The cutout's visible silhouette is 583px wide in a 1355px-high image.
-      const height = Math.min(bounds.height, Math.max(300, (gap - 24) / (583 / 1355)));
+      // Keep the agreed midpoint, with portrait scale independent of the text gap.
+      const height = bounds.height * 1.12;
       const center = (mEdge + dEdge) / 2 - bounds.left;
       stage.style.setProperty("--portrait-center", `${center - height * (17 / 1355)}px`);
       stage.style.setProperty("--portrait-height", `${height}px`);

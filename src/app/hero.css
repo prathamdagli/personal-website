@@ -37,10 +37,10 @@
   mask-image: linear-gradient(#000 0%, #000 80%, transparent 100%);
 }
 .cover-composed .cover-portrait img {
-  height: var(--portrait-height, 100%);
+  height: var(--portrait-height, 112%);
   width: auto;
   left: var(--portrait-center, 61.5%);
-  bottom: 0;
+  bottom: -12%;
 }
 .cover-artwork .hero-signature {
   top: -12%;

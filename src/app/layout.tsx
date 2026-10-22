@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import { Header, Footer } from "@/components/site-shell";
+import { SiteEffects } from "@/components/site-effects";
 import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 });
-const space = Space_Grotesk({
+const space = Manrope({
   subsets: ["latin"],
   variable: "--font-space",
   display: "swap",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pratham Dagli — AI / ML Engineer & Builder",
     description:
-      "Turning ideas into intelligent experiences. Explore my work in applied AI, full-stack development, and data science.",
+      "Pratham Dagli. AI/ML, full-stack development, and the systems in between. Explore the work and the person behind it.",
     type: "website",
     locale: "en_IN",
     siteName: "Pratham Dagli",
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body id="top" className={`${inter.variable} ${space.variable}`}>
         <Header />
         {children}
+        <SiteEffects />
         <Footer />
       </body>
     </html>

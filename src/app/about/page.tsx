@@ -4,73 +4,85 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { certifications, experience, skills } from "@/lib/portfolio";
 import { ContactCta } from "@/components/site-shell";
+
 export const metadata: Metadata = {
-  title: "About Me",
+  title: "About",
   description:
-    "Meet Pratham Dagli, a Computer Engineering student at PDEU building practical AI and full-stack software. Experience, education, and toolkit.",
+    "Pratham Dagli: Computer Engineering at PDEU, practical machine learning, full-stack development, and the experience behind the work.",
 };
+
 export default function AboutPage() {
   return (
     <main id="main">
       <section className="container page-intro about-intro">
-        <div className="eyebrow">A LITTLE ABOUT ME</div>
+        <div className="eyebrow">ABOUT / PRATHAM DAGLI</div>
         <h1>
-          More than
-          <br />
-          the <span className="serif">code.</span>
-          <span className="accent">✳</span>
+          <span className="page-title-line">The person.</span>
+          <span className="page-title-line">The practice.</span>
         </h1>
         <div className="intro-bottom">
           <p>
-            A builder, a student, and a firm believer
+            Computer Engineering at PDEU.
             <br />
-            that the best way to learn is to make something.
+            Working across machine learning, software, and cloud infrastructure.
           </p>
-          <span>PRATHAM DAGLI / COMPUTER ENGINEERING</span>
+          <a href="#experience" className="text-link">
+            Explore my experience <ArrowDownRight size={18} />
+          </a>
         </div>
       </section>
-      <section className="container about-story">
-        <div className="portrait-wrap">
-          <Image
-            src="/profile.jpg"
-            alt="Pratham Dagli at the PDEU campus"
-            width={876}
-            height={1024}
-            priority
-            sizes="(max-width: 700px) 90vw, 40vw"
-          />
-          <div className="portrait-caption">
-            <span>THE PERSON BEHIND THE PROJECTS.</span>
-            <ArrowDownRight size={21} />
+
+      <section
+        className="container about-story"
+        aria-labelledby="about-story-title"
+      >
+        <div>
+          <div className="portrait-wrap">
+            <Image
+              src="/profile.jpg"
+              alt="Pratham Dagli outdoors at the PDEU campus"
+              width={876}
+              height={1024}
+              loading="eager"
+              sizes="(max-width: 700px) 90vw, 40vw"
+            />
+            <div className="portrait-caption">
+              <span>PRATHAM DAGLI</span>
+              <ArrowDownRight size={21} aria-hidden="true" />
+            </div>
           </div>
+          <p className="about-photo-note">
+            On campus at Pandit Deendayal Energy University.
+          </p>
         </div>
         <div className="story-copy">
-          <span className="eyebrow">HELLO, I’M PRATHAM.</span>
-          <h2>
-            I like the space between
+          <span className="eyebrow">A WORKING INTRODUCTION</span>
+          <h2 id="about-story-title">
+            From a dataset
             <br />
-            <span className="serif">“what if”</span> and “it works.”
+            to something
+            <br />
+            you can use.
           </h2>
           <p>
-            I’m studying Computer Engineering at Pandit Deendayal Energy
-            University, with an expected graduation in May 2028. My focus is on
-            practical machine learning and the software that makes it useful.
+            I’m Pratham, a Computer Engineering student at Pandit Deendayal
+            Energy University, graduating in May 2028. I’m interested in the
+            entire path from understanding a problem to putting working software
+            in someone’s hands.
           </p>
           <p>
-            I enjoy the whole journey: understanding a dataset, training a
-            model, building an API, and creating an interface that brings it
-            together. A good result, to me, is something a person can actually
-            interact with.
+            That means preparing data, training a model, exposing it through an
+            API, and building the interface around it. My projects explore
+            complaint triage, credit readiness, green hydrogen certification,
+            career guidance, and Formula 1 data.
           </p>
           <p>
-            That curiosity has taken me into customer support, financial
-            inclusion, green hydrogen, career guidance, and even Formula 1 data.
-            Different problems keep me learning.
+            Alongside university, I’m building AWS infrastructure and reusable
+            service accelerators at Rivix, and working across digital engagement
+            and construction estimation at Maverick. Earlier roles took me into
+            applied ML, community education, and Physics tutoring.
           </p>
           <div className="about-page-actions">
-            <Link href="/work" className="text-link">
-              See where that curiosity leads <ArrowUpRight size={17} />
-            </Link>
             <a
               href="/Pratham-Dagli-Resume.pdf"
               className="button button-primary"
@@ -78,40 +90,39 @@ export default function AboutPage() {
             >
               Download resume <ArrowUpRight size={17} />
             </a>
-          </div>
-          <div className="personal-note">
-            <span>MY APPROACH</span>
-            <p>
-              Understand the problem.
-              <br />
-              Build something useful.
-              <br />
-              <em>Keep making it better.</em>
-            </p>
+            <Link href="/work" className="text-link">
+              See the projects <ArrowUpRight size={17} />
+            </Link>
           </div>
         </div>
       </section>
-      <section id="experience" className="section container">
-        <div className="section-heading">
+
+      <section
+        id="experience"
+        className="section container"
+        aria-labelledby="experience-title"
+      >
+        <div className="section-heading chapter-heading">
           <div>
             <span className="eyebrow">01 / EXPERIENCE</span>
-            <h2>
-              Learning beyond
-              <br />
-              the <span className="serif">classroom.</span>
-            </h2>
+            <h2 id="experience-title">Work, so far.</h2>
           </div>
+          <p>
+            From teaching the fundamentals
+            <br />
+            to building the infrastructure.
+          </p>
         </div>
         <div className="detailed-experience">
           {experience.map((e, i) => (
             <div key={e.company}>
               <div className="experience-side">
-                <span>0{i + 1}</span>
+                <span>{String(i + 1).padStart(2, "0")}</span>
                 <span>{e.date}</span>
               </div>
               <div>
-                <h3>{e.role}</h3>
-                <h4>{e.company}</h4>
+                <h3>{e.company}</h3>
+                <h4>{e.role}</h4>
                 <p>{e.description}</p>
                 <ul>
                   {e.bullets.map((b) => (
@@ -123,21 +134,22 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-      <section className="toolkit-band">
+
+      <section className="toolkit-band" aria-labelledby="toolkit-title">
         <div className="container section">
-          <div className="section-heading">
+          <div className="section-heading chapter-heading">
             <div>
-              <span className="eyebrow">02 / THE TOOLKIT</span>
-              <h2>
-                Different tools.
+              <span className="eyebrow">02 / TOOLKIT</span>
+              <h2 id="toolkit-title">
+                The tools
                 <br />
-                One <span className="serif">connected</span> mindset.
+                behind the work.
               </h2>
             </div>
-            <p className="muted">
-              The stack changes.
+            <p>
+              What I use to move between
               <br />
-              The drive to figure things out doesn’t.
+              data, interfaces, and systems.
             </p>
           </div>
           <div className="toolkit-grid">
@@ -156,14 +168,14 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section className="section container education-section">
+
+      <section
+        className="section container education-section"
+        aria-label="Education and further study"
+      >
         <div>
           <span className="eyebrow">03 / EDUCATION</span>
-          <h2>
-            A foundation
-            <br />
-            for <span className="serif">what’s next.</span>
-          </h2>
+          <h2>The foundation.</h2>
           <div className="education-item">
             <span>EXPECTED MAY 2028</span>
             <h3>B.Tech, Computer Engineering</h3>
@@ -180,15 +192,13 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="certifications">
-          <span className="eyebrow">04 / CONTINUOUS LEARNING</span>
-          <h2>
-            Never done
-            <br />
-            <span className="serif">learning.</span>
-          </h2>
-          {certifications.map(([name, issuer]) => (
+          <span className="eyebrow">04 / COURSES & CERTIFICATIONS</span>
+          <h2>Further study.</h2>
+          {certifications.map(([name, issuer], i) => (
             <div className="certificate" key={name}>
-              <span className="cert-star">✳</span>
+              <span className="cert-star">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <div>
                 <h3>{name}</h3>
                 <p>{issuer}</p>

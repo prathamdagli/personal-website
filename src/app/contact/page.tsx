@@ -1,83 +1,90 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import type { Metadata } from "next";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { ContactForm, CopyEmail } from "@/components/contact-form";
 import { email, social } from "@/lib/portfolio";
+
 export const metadata: Metadata = {
-  title: "Let’s Talk",
+  title: "Contact",
   description:
-    "Have a project, collaboration, or opportunity in mind? Get in touch with Pratham Dagli.",
+    "Contact Pratham Dagli about applied AI, software projects, internships, and collaborations.",
 };
+
 export default function ContactPage() {
   return (
     <main id="main">
       <section className="container page-intro contact-intro">
-        <div className="eyebrow">
-          <span className="status-dot" /> OPEN TO A GOOD CONVERSATION
-        </div>
+        <div className="eyebrow">CONTACT / START A CONVERSATION</div>
         <h1>
-          Great things start
-          <br />
-          with a <span className="serif">hello.</span>
-          <span className="accent">↗</span>
+          <span className="page-title-line">Let’s</span>
+          <span className="page-title-line">
+            talk<span className="accent">.</span>
+          </span>
         </h1>
         <div className="intro-bottom">
           <p>
-            Have an interesting problem? A project that needs a builder?
+            An idea to explore. A system to build. An opportunity to learn.
             <br />
-            Or just want to exchange ideas? Let’s connect.
+            Tell me what you’re working on.
           </p>
+          <span>AI / ML · FULL STACK · COLLABORATION</span>
         </div>
       </section>
-      <section className="container contact-layout">
+
+      <section
+        className="container contact-layout"
+        aria-label="Ways to get in touch"
+      >
         <div className="contact-info">
-          <span className="eyebrow">THE DIRECT ROUTE</span>
-          <a href={`mailto:${email}`} className="email-heading">
+          <span className="eyebrow">01 / WRITE DIRECTLY</span>
+          <a
+            href={`mailto:${email}`}
+            className="email-heading"
+            aria-label={`Email ${email}`}
+          >
             prathamdagli11
             <br />
             @gmail.com
-            <ArrowUpRight />
+            <ArrowUpRight aria-hidden="true" />
           </a>
           <CopyEmail />
+          <p className="contact-note">
+            For project ideas, internships, and collaborations in applied AI or
+            software development. A little context about the problem and what
+            you have in mind is a good place to start.
+          </p>
           <div className="contact-social-list">
             <a href={social.github} target="_blank" rel="noreferrer">
-              <FaGithub size={20} />
+              <FaGithub size={20} aria-hidden="true" />
               <div>
                 <span>GITHUB</span>
-                <strong>Follow the work</strong>
+                <strong>Explore the code</strong>
               </div>
-              <ArrowUpRight size={19} />
+              <ArrowUpRight size={19} aria-hidden="true" />
             </a>
             <a href={social.linkedin} target="_blank" rel="noreferrer">
-              <FaLinkedin size={20} />
+              <FaLinkedin size={20} aria-hidden="true" />
               <div>
                 <span>LINKEDIN</span>
-                <strong>Connect professionally</strong>
+                <strong>Connect with me</strong>
               </div>
-              <ArrowUpRight size={19} />
+              <ArrowUpRight size={19} aria-hidden="true" />
             </a>
-            <a href={`mailto:${email}`}>
-              <Mail size={20} />
+            <a href="/Pratham-Dagli-Resume.pdf" download>
+              <ArrowDownRight size={20} aria-hidden="true" />
               <div>
-                <span>EMAIL</span>
-                <strong>Start a conversation</strong>
+                <span>RESUME</span>
+                <strong>The experience, on paper</strong>
               </div>
-              <ArrowUpRight size={19} />
+              <ArrowUpRight size={19} aria-hidden="true" />
             </a>
           </div>
-          <p className="contact-note">
-            Currently studying at PDEU.
-            <br />
-            Always interested in thoughtful projects
-            <br />
-            and people who care about what they build.
-          </p>
         </div>
         <ContactForm />
       </section>
       <div className="container contact-end">
-        <span>LET’S MAKE SOMETHING THAT MATTERS.</span>
-        <span>✳</span>
+        <span>PRATHAM DAGLI / COMPUTER ENGINEERING, PDEU</span>
+        <ArrowUpRight size={48} aria-hidden="true" />
       </div>
     </main>
   );

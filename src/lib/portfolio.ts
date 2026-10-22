@@ -29,7 +29,6 @@ export const projects: Project[] = [
       "An AI-powered complaint management platform that brings classification, urgency detection, and resolution workflows into one connected system.",
     stack: ["React", "FastAPI", "scikit-learn", "Node.js"],
     repo: "https://github.com/prathamdagli/complaint_tracker_AI",
-    live: "https://complaint-tracker-ai-xi.vercel.app",
     challenge:
       "When complaints arrive through different channels, manual triage becomes inconsistent. Urgent issues need to reach the right people, and customers need a way to follow what happens next.",
     approach:
@@ -115,7 +114,6 @@ export const projects: Project[] = [
       "An AI-driven career workspace for exploring career matches, understanding skill gaps, and finding a more focused path to the next role.",
     stack: ["React", "FastAPI", "Gemini", "Firebase"],
     repo: "https://github.com/prathamdagli/jobwemet",
-    live: "https://jobwemet-zeta.vercel.app",
     challenge:
       "A resume describes where someone has been, but rarely tells them what to learn next. Connecting existing skills to a target career needs more context than a list of job titles.",
     approach:
@@ -246,7 +244,7 @@ export const skills = [
   {
     name: "Infrastructure",
     note: "Connecting the pieces that matter.",
-    items: ["FastAPI", "Firebase", "SQL", "Git", "GitHub", "C++", "Java"],
+    items: ["AWS", "FastAPI", "Firebase", "SQL", "Git", "GitHub", "C++", "Java"],
   },
 ];
 export const certifications = [

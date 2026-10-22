@@ -12,10 +12,9 @@ export default function WorkPage() {
       <section className="container page-intro">
         <div className="eyebrow">THE PROJECT INDEX / 01—05</div>
         <h1>
-          Ideas made
+          Selected
           <br />
-          <span className="serif">real.</span>
-          <span className="accent">↗</span>
+          work<span className="accent">.</span>
         </h1>
         <div className="intro-bottom">
           <p>

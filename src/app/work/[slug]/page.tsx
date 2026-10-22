@@ -96,22 +96,14 @@ export default async function ProjectPage({
         <div className="case-section">
           <span className="eyebrow">01 / THE CONTEXT</span>
           <div>
-            <h2>
-              The problem
-              <br />
-              worth <span className="serif">solving.</span>
-            </h2>
+            <h2>The challenge.</h2>
             <p>{p.challenge}</p>
           </div>
         </div>
         <div className="case-section">
           <span className="eyebrow">02 / THE APPROACH</span>
           <div>
-            <h2>
-              Connecting
-              <br />
-              the <span className="serif">pieces.</span>
-            </h2>
+            <h2>The system.</h2>
             <p>{p.approach}</p>
             <div className="flow-diagram">
               {p.flow.map((f, i) => (
@@ -127,9 +119,7 @@ export default async function ProjectPage({
         <div className="case-section">
           <span className="eyebrow">03 / IN THE DETAILS</span>
           <div>
-            <h2>
-              What’s <span className="serif">inside.</span>
-            </h2>
+            <h2>What it does.</h2>
             <ul className="feature-list">
               {p.features.map((f, i) => (
                 <li key={f}>

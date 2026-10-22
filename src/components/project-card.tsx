@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Project } from "@/lib/portfolio";
 import { ProjectVisual } from "./project-visual";
+
 export function ProjectCard({
   project,
   index,
@@ -10,27 +11,32 @@ export function ProjectCard({
   index: number;
 }) {
   return (
-    <Link
-      href={`/work/${project.slug}`}
-      className={`project-card project-${project.color}`}
-    >
-      <div className="project-image">
+    <article className="archive-project" data-reveal>
+      <div className="archive-project-info">
+        <span className="eyebrow">
+          0{index + 1} / {project.category.toUpperCase()}
+        </span>
+        <h2>
+          <Link href={`/work/${project.slug}`}>{project.title}</Link>
+        </h2>
+        <p>{project.description}</p>
+        <div className="archive-stack">
+          {project.stack.map((s) => (
+            <span key={s}>{s}</span>
+          ))}
+        </div>
+        <Link href={`/work/${project.slug}`} className="underlined-link">
+          EXPLORE PROJECT <ArrowUpRight size={18} />
+        </Link>
+      </div>
+      <Link
+        href={`/work/${project.slug}`}
+        className="archive-project-art"
+        data-cursor="EXPLORE"
+        aria-label={`Explore ${project.title}`}
+      >
         <ProjectVisual slug={project.slug} />
-        <span className="project-open">
-          <ArrowUpRight size={23} />
-        </span>
-      </div>
-      <div className="project-meta">
-        <span>
-          0{index + 1} / {project.category}
-        </span>
-        <span>{project.stack.slice(0, 2).join(" · ")}</span>
-      </div>
-      <h3>
-        {project.title}
-        <ArrowUpRight size={22} />
-      </h3>
-      <p>{project.short}</p>
-    </Link>
+      </Link>
+    </article>
   );
 }

@@ -19,7 +19,7 @@ export default function ContactPage() {
           Great things start
           <br />
           with a <span className="serif">hello.</span>
-          <span className="lime">↗</span>
+          <span className="accent">↗</span>
         </h1>
         <div className="intro-bottom">
           <p>

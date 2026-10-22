@@ -1,6 +1,6 @@
 # Pratham Dagli — Personal Portfolio
 
-A complete portfolio built with Next.js 16, React 19, and TypeScript. Dark editorial layouts, lime accents, an animated CSS orbital sculpture, and original project illustrations.
+A complete portfolio built with Next.js 16, React 19, and TypeScript. Charcoal editorial layouts, muted blue accents, an animated CSS orbital sculpture, and original project illustrations.
 
 ## Pages
 

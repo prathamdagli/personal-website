@@ -18,7 +18,7 @@ export default function AboutPage() {
           More than
           <br />
           the <span className="serif">code.</span>
-          <span className="lime">✳</span>
+          <span className="accent">✳</span>
         </h1>
         <div className="intro-bottom">
           <p>

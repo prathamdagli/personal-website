@@ -44,7 +44,7 @@ export default async function ProjectPage({
           </div>
           <h1>
             {p.title}
-            <span className="lime">.</span>
+            <span className="accent">.</span>
           </h1>
           <p>{p.short}</p>
         </div>

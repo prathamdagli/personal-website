@@ -15,7 +15,7 @@ export default function WorkPage() {
           Ideas made
           <br />
           <span className="serif">real.</span>
-          <span className="lime">↗</span>
+          <span className="accent">↗</span>
         </h1>
         <div className="intro-bottom">
           <p>

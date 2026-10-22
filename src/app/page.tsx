@@ -29,7 +29,7 @@ export default function Home() {
               <br />
               into <em>intelligent</em>
               <br />
-              experiences<span className="lime">.</span>
+              experiences<span className="accent">.</span>
             </h1>
             <p>
               AI / ML engineer. Full-stack developer.

@@ -6,8 +6,8 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <div
       style={{
-        background: "#111310",
-        color: "#eeeee5",
+        background: "#111318",
+        color: "#f2f3f5",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -21,7 +21,7 @@ export default function OpenGraphImage() {
           display: "flex",
           justifyContent: "space-between",
           fontSize: 18,
-          color: "#a4aa97",
+          color: "#a0a6b2",
           letterSpacing: 3,
         }}
       >
@@ -39,16 +39,16 @@ export default function OpenGraphImage() {
         }}
       >
         <span>Turning ideas into</span>
-        <span style={{ color: "#d3f36b" }}>intelligent experiences.</span>
+        <span style={{ color: "#abc4ed" }}>intelligent experiences.</span>
       </div>
       <div
         style={{
           display: "flex",
           marginTop: "auto",
-          borderTop: "1px solid #30342b",
+          borderTop: "1px solid #303540",
           paddingTop: 25,
           fontSize: 22,
-          color: "#a4aa97",
+          color: "#a0a6b2",
         }}
       >
         Applied AI · Full-stack development · Endless curiosity

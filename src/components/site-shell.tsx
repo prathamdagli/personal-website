@@ -37,11 +37,11 @@ export function Header() {
       <header className="site-header">
         <Link
           href="/"
-          className="wordmark"
+          className="site-name"
           aria-label="Pratham Dagli home"
           onClick={() => setOpen(false)}
         >
-          pd<span className="brand-dot">.</span>
+          Pratham Dagli
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map(([label, href]) => (
@@ -97,8 +97,8 @@ export function Footer() {
   return (
     <footer className="site-footer container">
       <div>
-        <Link href="/" className="wordmark" aria-label="Pratham Dagli home">
-          pd<span className="brand-dot">.</span>
+        <Link href="/" className="site-name" aria-label="Pratham Dagli home">
+          Pratham Dagli
         </Link>
         <span>Curiosity in. Possibility out.</span>
       </div>

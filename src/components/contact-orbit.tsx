@@ -1,4 +1,5 @@
 "use client";
+import { motionTokens } from "@/lib/motion";
 
 import { useState, type PointerEvent } from "react";
 import {
@@ -85,7 +86,7 @@ export function ContactOrbit() {
         <motion.span
           className="contact-email-arrow"
           animate={{ rotate: emailHover ? 45 : 0 }}
-          transition={{ duration: reduced ? 0 : 0.35 }}
+          transition={{ duration: reduced ? 0 : motionTokens.duration.base }}
         >
           <ArrowUpRight aria-hidden="true" />
         </motion.span>
@@ -134,7 +135,7 @@ export function ContactOrbit() {
               <motion.span
                 layoutId="contact-channel-highlight"
                 className="contact-channel-highlight"
-                transition={{ duration: reduced ? 0 : 0.3 }}
+                transition={{ duration: reduced ? 0 : motionTokens.duration.base }}
               />
             )}
           </a>
@@ -148,7 +149,7 @@ export function ContactOrbit() {
             initial={{ opacity: 0, y: reduced ? 0 : 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: reduced ? 0 : -6 }}
-            transition={{ duration: reduced ? 0 : 0.15 }}
+            transition={{ duration: reduced ? 0 : motionTokens.duration.fast }}
           >
             {channels[active].note}
           </motion.p>

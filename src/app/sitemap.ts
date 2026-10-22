@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/portfolio";
+import { siteConfig } from "@/lib/site-config";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://personal-website-puce-two-38.vercel.app";
+  const base = siteConfig.url.replace(/\/$/, "");
   return [
     "",
     "/work",

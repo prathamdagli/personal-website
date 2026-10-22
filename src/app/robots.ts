@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/site-config";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://personal-website-puce-two-38.vercel.app/sitemap.xml",
+    sitemap: `${siteConfig.url.replace(/\/$/, "")}/sitemap.xml`,
   };
 }

@@ -1,9 +1,17 @@
+import type { CSSProperties } from "react";
+import { motionTokens } from "@/lib/motion";
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header, Footer } from "@/components/site-shell";
 import { SiteEffects } from "@/components/site-effects";
+import { RouteTransition } from "@/components/route-transition";
+import { PrecisionCursor } from "@/components/precision-cursor";
+import { siteConfig } from "@/lib/site-config";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import "./experience.css";
+import "./phase.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -15,7 +23,7 @@ const space = Manrope({
   display: "swap",
 });
 export const metadata: Metadata = {
-  metadataBase: new URL("https://personal-website-puce-two-38.vercel.app"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "Pratham Dagli — AI Engineering",
     template: "%s — Pratham Dagli",
@@ -37,12 +45,54 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning style={{
+      "--motion-fast": `${motionTokens.duration.fast}s`,
+      "--motion-base": `${motionTokens.duration.base}s`,
+      "--motion-story": `${motionTokens.duration.story}s`,
+      "--ease-enter": `cubic-bezier(${motionTokens.ease.enter.join(",")})`,
+      "--ease-standard": `cubic-bezier(${motionTokens.ease.standard.join(",")})`,
+    } as CSSProperties}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body id="top" className={`${inter.variable} ${space.variable}`}>
         <Header />
-        {children}
+        <RouteTransition>{children}</RouteTransition>
         <SiteEffects />
+        <PrecisionCursor />
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: siteConfig.name,
+              url: siteConfig.url,
+              jobTitle: siteConfig.title,
+              email: "mailto:prathamdagli11@gmail.com",
+              sameAs: [
+                "https://github.com/prathamdagli",
+                "https://linkedin.com/in/pratham-dagli",
+              ],
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "Pandit Deendayal Energy University",
+              },
+              homeLocation: { "@type": "Place", name: siteConfig.location },
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+        {process.env.VERCEL && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );

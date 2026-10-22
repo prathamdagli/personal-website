@@ -8,6 +8,7 @@ const routes = [
   "/work",
   "/about",
   "/contact",
+  "/design-lab",
   "/work/complaint-tracker",
   "/work/creditscout",
   "/work/greenhydro",
@@ -27,6 +28,7 @@ for (const route of routes) {
     1,
     `${route} should have one main landmark`,
   );
+  assert.equal([...html.matchAll(/<h1\b/gi)].length, 1, `${route} should have one h1`);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
   assert.equal(
     new Set(ids).size,

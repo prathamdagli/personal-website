@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div>
           <div className="portrait-wrap">
             <Image
-              src="/profile.jpg"
+              src="/profile.webp"
               alt="Pratham Dagli outdoors at the PDEU campus"
               width={876}
               height={1024}

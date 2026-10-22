@@ -6,11 +6,19 @@ import { Hero } from "@/components/hero";
 import { ContactCta } from "@/components/site-shell";
 import { ProjectCard } from "@/components/project-card";
 import { ScrollStatement } from "@/components/scroll-statement";
+import {
+  SkillsSection,
+  AchievementsSection,
+  CurrentlySection,
+} from "@/components/profile-sections";
+import { HomeMotion } from "@/components/home-motion";
+import { NumberTicker, LogoMarquee } from "@/components/motion-details";
 
 export default function Home() {
   return (
     <main id="main">
       <Hero />
+      <HomeMotion />
       <section id="introduction" className="intro-section paper-section">
         <div className="container">
           <div className="section-label">
@@ -26,38 +34,44 @@ export default function Home() {
               it useful.
             </p>
             <Link href="/about" className="underlined-link">
-              THE PERSON & THE PRACTICE <ArrowUpRight size={18} />
+              About me <ArrowUpRight size={18} />
             </Link>
             <div className="intro-stats">
               <div>
-                <strong>9.57</strong>
+                <NumberTicker value={9.57} decimals={2} />
                 <span>CGPA / 10</span>
               </div>
               <div>
-                <strong>2028</strong>
+                <NumberTicker value={2028} />
                 <span>EXPECTED GRADUATION</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <SkillsSection />
+      <div className="container">
+        <LogoMarquee />
+      </div>
       <section id="selected-work" className="selected-work section container">
         <div className="section-label">
-          <span>02 / SELECTED PROJECTS</span>
-          <span>IDEAS → SYSTEMS → EXPERIENCES</span>
+          <span>03 / Selected projects</span>
+          <span>Ideas → Systems → Experiences</span>
         </div>
         <div className="work-heading" data-reveal>
           <h2>
             Selected projects<span>.</span>
           </h2>
           <Link href="/work" className="underlined-link">
-            THE COMPLETE INDEX <ArrowUpRight size={18} />
+            All projects <ArrowUpRight size={18} />
           </Link>
         </div>
-        <div className="home-project-list">
-          {projects.slice(0, 3).map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
-          ))}
+        <div className="horizontal-viewport">
+          <div className="home-project-list">
+            {projects.slice(0, 3).map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} headingLevel="h3" />
+            ))}
+          </div>
         </div>
         <div className="work-index-link">
           <span>ALSO IN THE COLLECTION</span>
@@ -73,7 +87,7 @@ export default function Home() {
         <div className="container practice-layout">
           <div className="practice-photo" data-reveal>
             <Image
-              src="/profile.jpg"
+              src="/profile.webp"
               alt="Pratham Dagli on campus"
               width={876}
               height={1024}
@@ -85,7 +99,7 @@ export default function Home() {
             </div>
           </div>
           <div className="practice-copy" data-reveal>
-            <span className="eyebrow">03 / THE PRACTICE</span>
+            <span className="eyebrow">04 / The practice</span>
             <h2>
               Curious in theory.
               <br />
@@ -102,22 +116,22 @@ export default function Home() {
               asks a different question.
             </p>
             <Link href="/about" className="underlined-link">
-              GET TO KNOW ME <ArrowUpRight size={18} />
+              About me <ArrowUpRight size={18} />
             </Link>
           </div>
         </div>
       </section>
       <section className="section container career-home">
         <div className="section-label">
-          <span>04 / EXPERIENCE</span>
-          <span>LEARNING BY CONTRIBUTING.</span>
+          <span>05 / Experience</span>
+          <span>Learning by contributing.</span>
         </div>
         <div className="career-heading" data-reveal>
           <h2>
             Learning in good company<span>.</span>
           </h2>
           <Link href="/about#experience" className="underlined-link">
-            FULL EXPERIENCE <ArrowUpRight size={18} />
+            Full experience <ArrowUpRight size={18} />
           </Link>
         </div>
         <div className="experience-ledger">
@@ -135,6 +149,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <AchievementsSection />
+      <CurrentlySection />
       <ContactCta />
     </main>
   );

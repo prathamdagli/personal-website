@@ -1,4 +1,5 @@
 "use client";
+import { motionTokens } from "@/lib/motion";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -255,7 +256,7 @@ export function ProjectLab({ project }: { project: Project }) {
               initial={{ opacity: 0, y: reduced ? 0 : 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: reduced ? 0 : -12 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: reduced ? 0 : motionTokens.duration.base }}
             >
               <Icon size={30} strokeWidth={1} />
               <h3>{item.title}</h3>

@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import { motionTokens } from "@/lib/motion";
 
 import { useRef, useState } from "react";
 import {
@@ -92,6 +94,13 @@ export function AboutExperience() {
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <span>{entry.date}</span>
               </div>
+              <div className="company-logo-slot">
+                {entry.logo ? (
+                  <Image src={entry.logo} alt={`${entry.company} logo`} width={38} height={38} />
+                ) : (
+                  <><span aria-hidden="true">{entry.company[0]}</span><small>Logo to add</small></>
+                )}
+              </div>
               <h3>
                 <button
                   type="button"
@@ -107,7 +116,7 @@ export function AboutExperience() {
                   <motion.span
                     className="journey-toggle"
                     animate={{ rotate: open ? 45 : 0 }}
-                    transition={{ duration: reduced ? 0 : 0.3 }}
+                    transition={{ duration: reduced ? 0 : motionTokens.duration.base }}
                   >
                     <Plus size={23} aria-hidden="true" />
                   </motion.span>
@@ -115,6 +124,7 @@ export function AboutExperience() {
               </h3>
               <p className="journey-role">{entry.role}</p>
               <p className="journey-summary">{entry.description}</p>
+              {entry.outcomes.map(outcome => <p className="experience-outcome" key={outcome}>{outcome}</p>)}
               <div
                 id={`journey-detail-${index}`}
                 role="region"
@@ -129,8 +139,8 @@ export function AboutExperience() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{
-                        duration: reduced ? 0 : 0.4,
-                        ease: [0.22, 1, 0.36, 1],
+                        duration: reduced ? 0 : motionTokens.duration.base,
+                        ease: motionTokens.ease.enter,
                       }}
                       className="journey-details"
                     >
@@ -141,7 +151,7 @@ export function AboutExperience() {
                             initial={reduced ? false : { opacity: 0, y: 9 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{
-                              duration: reduced ? 0 : 0.3,
+                              duration: reduced ? 0 : motionTokens.duration.base,
                               delay: reduced ? 0 : bulletIndex * 0.06,
                             }}
                           >
@@ -174,9 +184,9 @@ export function AboutToolkit() {
           initial={reduced ? false : { opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: reduced ? 0 : index * 0.08 }}
+          transition={{ duration: reduced ? 0 : motionTokens.duration.base, delay: reduced ? 0 : index * 0.08 }}
           whileHover={
-            reduced ? undefined : { y: -5, transition: { duration: 0.25 } }
+            reduced ? undefined : { y: -5, transition: { duration: reduced ? 0 : motionTokens.duration.base } }
           }
         >
           <span className="eyebrow">
@@ -196,7 +206,7 @@ export function AboutToolkit() {
               {group.name}
               <motion.span
                 animate={{ rotate: expanded[index] ? 45 : 0 }}
-                transition={{ duration: reduced ? 0 : 0.3 }}
+                transition={{ duration: reduced ? 0 : motionTokens.duration.base }}
               >
                 <Plus size={22} aria-hidden="true" />
               </motion.span>
@@ -211,7 +221,7 @@ export function AboutToolkit() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: reduced ? 0 : 0.35 }}
+                  transition={{ duration: reduced ? 0 : motionTokens.duration.base }}
                 >
                   <div className="toolkit-tools">
                     {group.items.map((tool, i) => (
@@ -220,7 +230,7 @@ export function AboutToolkit() {
                         initial={reduced ? false : { opacity: 0, x: -8 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
-                          duration: reduced ? 0 : 0.25,
+                          duration: reduced ? 0 : motionTokens.duration.base,
                           delay: reduced ? 0 : i * 0.025,
                         }}
                       >

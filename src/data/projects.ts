@@ -14,6 +14,7 @@ export type Project = {
   flow: string[];
   impact: string;
   overview: { role: string; timeline: string; team: string };
+  architectureImage?: string;
   media: { image?: string; video?: string; poster?: string; alt: string };
   results: string[];
   learnings: string[];

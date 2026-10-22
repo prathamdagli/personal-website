@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowUp, Menu, X } from "lucide-react";
 import { email, social } from "@/lib/portfolio";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
   ["Projects", "/work"],
@@ -120,6 +121,7 @@ export function Header() {
         <a href="/Pratham-Dagli-Resume.pdf" className="header-resume" download>
           RESUME <ArrowUpRight size={14} />
         </a>
+        <ThemeToggle />
         <button
           ref={toggle}
           className="menu-toggle"

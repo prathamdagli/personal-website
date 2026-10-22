@@ -5,13 +5,24 @@ export const social = {
 };
 export { projects } from "@/data/projects";
 export type { Project } from "@/data/projects";
-export const experience = [
+export type Experience = {
+  role: string;
+  company: string;
+  date: string;
+  description: string;
+  logo?: string;
+  outcomes: string[];
+  bullets: string[];
+};
+export const experience: Experience[] = [
   {
     role: "Intern",
     company: "Rivix · Early-Stage Startup",
     date: "Sep 2026 — Present",
     description:
       "Building reusable AWS infrastructure and service accelerators in collaboration with the founding team.",
+    logo: undefined, // TODO: add an approved local company logo path.
+    outcomes: ["[ADD VERIFIED OUTCOME]"],
     bullets: [
       "Developing reusable AWS cloud infrastructure and accelerator frameworks to streamline service integration and reduce repetitive setup across products.",
       "Collaborating directly with the founding team to take features from concept to implementation across cloud infrastructure, frontend, and backend development.",
@@ -24,6 +35,8 @@ export const experience = [
     date: "Sep 2026 — Present",
     description:
       "Working across digital engagement and construction estimation, from LinkedIn content to detailed quantity takeoffs.",
+    logo: undefined, // TODO: add an approved local company logo path.
+    outcomes: ["[ADD VERIFIED OUTCOME]"],
     bullets: [
       "Managing LinkedIn content and scheduling to strengthen the company’s professional presence and digital engagement.",
       "Executed quantity takeoffs using On-Screen Takeoff (OST), processing approximately 200 drawing sheets across multiple construction trades.",
@@ -36,6 +49,8 @@ export const experience = [
     date: "Jun — Jul 2026",
     description:
       "Worked across the machine learning lifecycle, from preprocessing and model training to backend integration and deployment.",
+    logo: undefined, // TODO: add an approved local company logo path.
+    outcomes: ["[ADD VERIFIED OUTCOME]"],
     bullets: [
       "Built and deployed KNN and Logistic Regression models.",
       "Integrated model inference with RESTful APIs using FastAPI.",
@@ -48,6 +63,8 @@ export const experience = [
     date: "Jun 2025",
     description:
       "Contributed to community education and outreach, bringing the same care for real people that shapes my approach to software.",
+    logo: undefined, // TODO: add an approved local company logo path.
+    outcomes: ["[ADD VERIFIED OUTCOME]"],
     bullets: [
       "Tutored 30 underprivileged students in English and mathematics.",
       "Coordinated educational activities and community food distribution.",
@@ -59,6 +76,8 @@ export const experience = [
     date: "May — Jul 2024",
     description:
       "Helped students build a stronger understanding of Physics and prepare for their next academic step.",
+    logo: undefined, // TODO: add an approved local company logo path.
+    outcomes: ["[ADD VERIFIED OUTCOME]"],
     bullets: [
       "Tutored Class 11 and 12 students in Physics.",
       "Guided students in preparation for board exams and competitive entrance tests.",

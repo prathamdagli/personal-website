@@ -14,13 +14,13 @@ After screenshot feedback, the hero was divided into separate artwork and action
 | --- | --- |
 | Neural field | Selected after the user delegated the choice. Quiet technical signature behind the portrait; separate lazy chunk, demand rendering and offscreen unmounting. Static on small/low-power/save-data/reduced-motion devices. |
 | Split titles | Brief 300ms desktop reading cues. |
-| Pinned introduction | Highlights the three lines sequentially with scrolling. |
+| Introduction | Compact two-column statement and details; scroll highlights without pinning or artificial scroll space. |
 | Horizontal selected work | Three compact desktop entries; normal vertical layout on mobile/reduced motion. Keyboard focus advances the strip. |
 | Number tickers | Single 600ms reveal of existing 9.57 and 2028 facts. |
 | Marquee | Text logo slots, paused offscreen, on hover/focus, by a pause control and for reduced motion. |
 | Pipeline beam | Brief hover-only traversal of Data → Model → API → Interface. |
 | Card tilt / résumé shimmer | Small pointer response and hover-only CTA emphasis. |
-| Page changes | Brief opacity transition; reduced motion removes animation. |
+| Page changes | Server-rendered Next template with a brief CSS entrance. No exit gate or hidden route wrapper; reduced motion removes animation. |
 
 `src/lib/motion.ts` owns durations/easings, also injected as CSS variables. Existing interaction durations were aligned with these tokens. The decorative cursor retains the native cursor.
 
@@ -56,7 +56,13 @@ Optional MDX Writing was not added; no fabricated post was published.
 - Production dependency audit: zero vulnerabilities. Development tooling has transitive findings; forced dependency downgrades were not applied.
 - Total emitted JavaScript, including lazy chunks and the Next.js update, is recorded in `phase-js-report.json`. This is not initial-page transfer size. 3D and GSAP remain code split.
 
-The final measured aggregate is 584,642 gzip bytes versus 266,293 before this phase: **+318,349 bytes (about 311KiB)** across every emitted chunk. The majority of the increase belongs to separately loaded 3D libraries. A browser transfer/performance audit is still required to assess initial-route costs.
+The latest measured aggregate is 589,124 gzip bytes versus 266,293 before this phase: **+322,831 bytes (about 315KiB)** across every emitted chunk. The majority of the increase belongs to separately loaded 3D libraries. A browser transfer/performance audit is still required to assess initial-route costs.
+
+## Navigation and spacing correction
+
+Following feedback about empty introduction space and blank navigation, the introduction now places the statement and supporting details in adjacent columns, with a stacked mobile layout. Intro pinning and its artificial 450px scroll range were removed. A server-rendered Next template replaces the route-wide AnimatePresence exit gate. Page headings and project entries render visibly before hydration, and scroll reveals no longer hide content while awaiting an observer. Primary-page HTML and streamed navigation payloads are checked by the link audit. These checks do not substitute for browser click tests, which remain unavailable.
+
+Local port 3000 now runs the development server with isolated `.next/dev` output and hot updates, rather than serving production chunks while those chunks are rebuilt.
 
 | Browser QA requested | Result |
 | --- | --- |

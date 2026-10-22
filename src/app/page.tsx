@@ -25,6 +25,7 @@ export default function Home() {
             <span>01 / THE WAY I THINK</span>
             <ArrowDownRight size={23} />
           </div>
+          <div className="intro-composition">
           <ScrollStatement />
           <div className="intro-details">
             <p>
@@ -46,6 +47,7 @@ export default function Home() {
                 <span>EXPECTED GRADUATION</span>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

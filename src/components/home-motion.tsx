@@ -51,7 +51,7 @@ export function HomeMotion() {
             .forEach((heading) => {
               gsap.fromTo(
                 heading.querySelectorAll(".title-word"),
-                { yPercent: 105, opacity: 0 },
+                { yPercent: 12, opacity: 0.6 },
                 {
                   yPercent: 0,
                   opacity: 1,
@@ -79,9 +79,8 @@ export function HomeMotion() {
             const story = gsap.timeline({
               scrollTrigger: {
                 trigger: intro,
-                start: "top 100px",
-                end: "+=450",
-                pin: intro.offsetHeight + 120 <= window.innerHeight,
+                start: "top 75%",
+                end: "bottom 45%",
                 scrub: true,
                 invalidateOnRefresh: true,
               },

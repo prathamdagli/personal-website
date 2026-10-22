@@ -1,245 +1,254 @@
-import React from 'react';
-import { Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-
+import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  ArrowDown,
+  ArrowDownRight,
+  ArrowUpRight,
+  Code2,
+  BrainCircuit,
+  Layers,
+} from "lucide-react";
+import { projects, experience, social } from "@/lib/portfolio";
+import { ContactCta } from "@/components/site-shell";
+import { ProjectCard } from "@/components/project-card";
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-50 font-[family-name:var(--font-geist-sans)] flex flex-col items-center p-8 sm:p-20 relative">
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 w-full bg-zinc-950/80 backdrop-blur-md z-50 border-b border-zinc-900/50">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold text-white tracking-tight">PD<span className="text-indigo-500">.</span></span>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
-            <a href="#about" className="hover:text-indigo-400 transition-colors">About</a>
-            <a href="#experience" className="hover:text-indigo-400 transition-colors">Experience</a>
-            <a href="#projects" className="hover:text-indigo-400 transition-colors">Projects</a>
-            <a href="#skills" className="hover:text-indigo-400 transition-colors">Skills</a>
-            <a href="#education" className="hover:text-indigo-400 transition-colors">Education</a>
-          </div>
+    <main id="main">
+      <section className="hero container">
+        <div className="hero-top">
+          <span className="eyebrow">
+            <span className="status-dot" /> PRATHAM DAGLI · ENGINEER & BUILDER
+          </span>
+          <span className="hero-edition">PORTFOLIO / 2026</span>
         </div>
-      </nav>
-
-      <div id="about" className="max-w-4xl w-full flex flex-col md:flex-row items-center gap-12 mt-16">
-        {/* Profile Info */}
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6">
-          <div className="space-y-4">
-            <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-500">
-              Pratham Dagli
+        <div className="hero-content">
+          <div className="hero-copy">
+            <h1>
+              Turning ideas
+              <br />
+              into <em>intelligent</em>
+              <br />
+              experiences<span className="lime">.</span>
             </h1>
-            <h2 className="text-2xl text-indigo-400 font-medium tracking-wide">
-              AI/ML Engineer & Full-Stack Developer
-            </h2>
+            <p>
+              AI / ML engineer. Full-stack developer.
+              <br />I connect data, code, and curiosity to build
+              <br className="desktop-break" /> things that make a difference.
+            </p>
+            <div className="hero-actions">
+              <Link href="/work" className="button button-primary">
+                Explore my work <ArrowUpRight size={18} />
+              </Link>
+              <Link href="/about" className="text-link">
+                The person behind it <ArrowUpRight size={16} />
+              </Link>
+            </div>
           </div>
-          
-          <p className="text-zinc-400 text-lg leading-relaxed max-w-xl">
-            Computer Engineering student at PDEU focused on building practical software and ML-powered tools. Experienced across the full development lifecycle from data preprocessing and model training to API integration and deployment.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex items-center gap-4 pt-4">
-            <a 
-              href="mailto:prathamdagli11@gmail.com"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-colors"
-            >
-              <Mail className="w-5 h-5" />
-              Contact Me
-            </a>
-            <div className="flex items-center gap-4 ml-4">
-              <a href="https://github.com/prathamdagli" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500 transition-colors text-zinc-400 hover:text-white">
-                <FaGithub className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com/in/pratham-dagli" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-zinc-900 border border-zinc-800 hover:border-indigo-500 transition-colors text-zinc-400 hover:text-white">
-                <FaLinkedin className="w-5 h-5" />
-              </a>
+          <div className="hero-art" aria-hidden="true">
+            <div className="art-cross cross-one">+</div>
+            <div className="art-cross cross-two">+</div>
+            <div className="orbit-coordinate coord-one">IDEA → SYSTEM</div>
+            <div className="sculpture">
+              <div className="orbit-ring ring-one" />
+              <div className="orbit-ring ring-two" />
+              <div className="orbit-ring ring-three" />
+              <div className="orbit-ring ring-four" />
+              <div className="orbit-core" />
+              <div className="satellite" />
+            </div>
+            <div className="art-label label-ai">
+              <BrainCircuit size={17} />
+              <span>
+                HUMAN CURIOSITY
+                <br />
+                <strong>Machine intelligence.</strong>
+              </span>
+            </div>
+            <div className="art-label label-code">
+              <Code2 size={17} />
+              <span>BUILT TO CONNECT</span>
+              <span className="tiny-dot" />
+            </div>
+            <div className="orbit-coordinate coord-two">
+              EXPERIMENT. BUILD. REPEAT.
             </div>
           </div>
         </div>
-
-        {/* Profile Image Area */}
-        <div className="w-64 h-64 md:w-80 md:h-80 relative flex-shrink-0 group">
-          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[2rem] rotate-6 opacity-20 group-hover:opacity-40 group-hover:rotate-12 transition-all duration-500 blur-2xl"></div>
-          <div className="w-full h-full bg-zinc-900 border border-zinc-800 rounded-[2rem] overflow-hidden flex items-center justify-center relative shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-            <img src="/profile.jpg" alt="Pratham Dagli" className="w-full h-full object-cover" />
+        <div className="hero-bottom">
+          <a href="#selected-work" className="scroll-link">
+            <span className="scroll-circle">
+              <ArrowDown size={16} />
+            </span>
+            SCROLL TO EXPLORE
+          </a>
+          <div className="hero-note">
+            <span className="small-line" />
+            Currently studying Computer Engineering at PDEU
           </div>
+        </div>
+      </section>
+      <div className="discipline-strip">
+        <div className="container">
+          <span>
+            APPLIED AI <span>↗</span>
+          </span>
+          <span>
+            THOUGHTFUL INTERFACES <span>↗</span>
+          </span>
+          <span>
+            END-TO-END SYSTEMS <span>↗</span>
+          </span>
+          <span>
+            ALWAYS CURIOUS <span>✳</span>
+          </span>
         </div>
       </div>
-
-      {/* Experience Section */}
-      <section id="experience" className="max-w-4xl w-full mt-32 scroll-mt-24">
-        <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
-          <span className="w-8 h-[2px] bg-indigo-500"></span>
-          Experience
-        </h3>
-        
-        <div className="space-y-12 pl-4 border-l border-zinc-800">
-          <div className="relative pl-8">
-            <div className="absolute w-4 h-4 bg-indigo-500 rounded-full -left-[8.5px] top-1.5 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-              <h4 className="text-xl font-semibold text-zinc-200">AI/ML Intern</h4>
-              <span className="text-zinc-500 text-sm font-medium bg-zinc-900 px-3 py-1 rounded-full border border-zinc-800">Jun 2026 – Jul 2026</span>
-            </div>
-            <p className="text-indigo-400 font-medium mb-4">Techify Solutions Pvt. Ltd.</p>
-            <ul className="list-disc list-inside text-zinc-400 space-y-2 marker:text-zinc-600">
-              <li>Built and deployed ML models (KNN, Logistic Regression) with backend APIs.</li>
-              <li>Integrated RESTful APIs with FastAPI to serve models in a full-stack app.</li>
-              <li>Contributed across the full data pipeline from preprocessing to deployment.</li>
-            </ul>
+      <section id="selected-work" className="section container">
+        <div className="section-heading">
+          <div>
+            <div className="eyebrow">01 / SELECTED WORK</div>
+            <h2>
+              A little curiosity.
+              <br />A lot of <span className="serif">possibility.</span>
+            </h2>
           </div>
-
-          <div className="relative pl-8">
-            <div className="absolute w-3 h-3 bg-zinc-700 rounded-full -left-[6.5px] top-2 border-2 border-zinc-950"></div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-              <h4 className="text-xl font-semibold text-zinc-200">CSSI Intern</h4>
-              <span className="text-zinc-500 text-sm font-medium bg-zinc-900 px-3 py-1 rounded-full border border-zinc-800">Jun 2025</span>
-            </div>
-            <p className="text-zinc-400 font-medium mb-4">Rainbow Force Foundation</p>
-            <ul className="list-disc list-inside text-zinc-400 space-y-2 marker:text-zinc-600">
-              <li>Tutored 30 underprivileged students in English and mathematics.</li>
-              <li>Coordinated educational activities and community food distribution.</li>
-            </ul>
+          <div className="section-aside">
+            <p>
+              Real problems. Different domains.
+              <br />
+              One drive to build something useful.
+            </p>
+            <Link href="/work" className="text-link">
+              View all projects <ArrowUpRight size={17} />
+            </Link>
           </div>
         </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="max-w-4xl w-full mt-32 mb-20 scroll-mt-24">
-        <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
-          <span className="w-8 h-[2px] bg-purple-500"></span>
-          Featured Projects
-        </h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-indigo-500/50 transition-colors group">
-            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-indigo-400 transition-colors">ComplaintTracker AI</h4>
-            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
-              AI-powered system classifying customer complaints by category and urgency. Includes role-based dashboards and a Telegram bot integration.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Python', 'FastAPI', 'React', 'scikit-learn'].map(tech => (
-                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-purple-500/50 transition-colors group">
-            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-purple-400 transition-colors">GreenHydro</h4>
-            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
-              AI-powered Blockchain Certification System to analyze green hydrogen data and automate subsidy certification using ML.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['React', 'Node.js', 'Flask', 'Solidity'].map(tech => (
-                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-emerald-500/50 transition-colors group">
-            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-emerald-400 transition-colors">Creditscout</h4>
-            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
-              Credit Scoring for the Unbanked. Uses transaction history to generate a credit-readiness score for people without formal banking records.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Next.js', 'FastAPI', 'Python', 'Firebase', 'XGBoost'].map(tech => (
-                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-blue-500/50 transition-colors group">
-            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-blue-400 transition-colors">Jobwemet</h4>
-            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
-              Skill Intelligence System. Full-stack platform for skill-gap analysis with personalized learning recommendations and an AI-powered assistant.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['React', 'FastAPI', 'Python', 'Chart.js', 'Git'].map(tech => (
-                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl hover:border-rose-500/50 transition-colors group md:col-span-2">
-            <h4 className="text-xl font-semibold text-zinc-200 mb-2 group-hover:text-rose-400 transition-colors">Formula 1 Data Analysis</h4>
-            <p className="text-zinc-400 text-sm mb-4 line-clamp-3">
-              Analyzed 500+ F1 races to explore performance trends and race strategy patterns using Python visualization libraries.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Python', 'Pandas', 'Matplotlib', 'Seaborn'].map(tech => (
-                <span key={tech} className="text-xs font-medium text-zinc-300 bg-zinc-800 px-2 py-1 rounded-md">{tech}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Skills Section */}
-      <section id="skills" className="max-w-4xl w-full mt-32 scroll-mt-24">
-        <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
-          <span className="w-8 h-[2px] bg-emerald-500"></span>
-          Skills
-        </h3>
-        <div className="flex flex-wrap gap-3">
-          {[
-            'Python', 'C++', 'Java', 'SQL',
-            'Logistic Regression', 'XGBoost', 'Random Forest', 'KNN', 'SVM', 'scikit-learn',
-            'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'TF-IDF',
-            'FastAPI', 'Firebase', 'Git', 'GitHub', 'Next.js', 'React'
-          ].map(skill => (
-            <span key={skill} className="px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full text-zinc-300 font-medium hover:border-emerald-500 hover:text-emerald-400 transition-colors cursor-default">
-              {skill}
-            </span>
+        <div className="project-grid">
+          {projects.slice(0, 4).map((p, i) => (
+            <ProjectCard key={p.slug} project={p} index={i} />
           ))}
         </div>
       </section>
-
-      {/* Education & Certifications */}
-      <section id="education" className="max-w-4xl w-full mt-32 mb-32 grid grid-cols-1 md:grid-cols-2 gap-12 scroll-mt-24">
-        <div>
-          <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
-            <span className="w-8 h-[2px] bg-blue-500"></span>
-            Education
-          </h3>
-          <div className="space-y-8 pl-4 border-l border-zinc-800">
-            <div className="relative pl-6">
-              <div className="absolute w-3 h-3 bg-zinc-700 rounded-full -left-[6.5px] top-2 border-2 border-zinc-950"></div>
-              <h4 className="text-lg font-semibold text-zinc-200">B.Tech, Computer Engineering</h4>
-              <p className="text-blue-400 font-medium">Pandit Deendayal Energy University</p>
-              <p className="text-zinc-500 text-sm mt-1">CGPA: 9.57 | Expected May 2028</p>
+      <section className="about-band">
+        <div className="container about-preview">
+          <div className="portrait-wrap">
+            <Image
+              src="/profile.jpg"
+              alt="Pratham Dagli outdoors on campus"
+              width={876}
+              height={1024}
+              sizes="(max-width: 700px) 90vw, 33vw"
+            />
+            <div className="portrait-caption">
+              <span>PRATHAM, OFFLINE.</span>
+              <ArrowDownRight size={22} />
             </div>
-            <div className="relative pl-6">
-              <div className="absolute w-3 h-3 bg-zinc-700 rounded-full -left-[6.5px] top-2 border-2 border-zinc-950"></div>
-              <h4 className="text-lg font-semibold text-zinc-200">Class XII, Science</h4>
-              <p className="text-zinc-400 font-medium">Sharda Mandir Modern High School</p>
-              <p className="text-zinc-500 text-sm mt-1">97.7 percentile | May 2024</p>
+            <span className="portrait-sticker">
+              A WORK IN
+              <br />
+              <strong>progress.</strong>↗
+            </span>
+          </div>
+          <div className="about-preview-copy">
+            <div className="eyebrow">02 / THE PERSON BEHIND THE CODE</div>
+            <h2>
+              Engineer by training.
+              <br />
+              <span className="serif">Curious</span> by default.
+            </h2>
+            <p>
+              I’m Pratham, a Computer Engineering student at Pandit Deendayal
+              Energy University. I like turning messy, open-ended problems into
+              software people can actually use.
+            </p>
+            <p>
+              My work lives where machine learning meets the web: from complaint
+              intelligence and credit readiness to cleaner energy and career
+              discovery.
+            </p>
+            <Link href="/about" className="text-link">
+              A little more about me <ArrowUpRight size={17} />
+            </Link>
+            <div className="about-facts">
+              <div>
+                <strong>
+                  9.57<span>/10</span>
+                </strong>
+                <span>CGPA AT PDEU</span>
+              </div>
+              <div>
+                <strong>2028</strong>
+                <span>EXPECTED GRADUATION</span>
+              </div>
+              <div>
+                <strong>∞</strong>
+                <span>THINGS TO LEARN</span>
+              </div>
             </div>
           </div>
         </div>
-
-        <div>
-          <h3 className="text-3xl font-bold text-zinc-100 mb-8 flex items-center gap-4">
-            <span className="w-8 h-[2px] bg-orange-500"></span>
-            Certifications
-          </h3>
-          <ul className="space-y-4">
-            {[
-              'Fundamentals of Deep Learning — NVIDIA',
-              'AWS APAC Solutions Architecture Job Simulation',
-              'Deloitte Australia Technology Job Simulation',
-              'NumPy and Pandas in Python — Infosys Springboard',
-              'Python 101 for Data Science — Cognitive Class, IBM',
-              'Basics of Finance — HP LIFE'
-            ].map(cert => (
-              <li key={cert} className="flex items-start gap-3 text-zinc-400">
-                <span className="text-orange-500 mt-1">✦</span>
-                <span className="leading-snug">{cert}</span>
-              </li>
-            ))}
-          </ul>
+      </section>
+      <section className="section container experience-preview">
+        <div className="section-heading">
+          <div>
+            <div className="eyebrow">03 / LEARNING BY DOING</div>
+            <h2>
+              Small steps.
+              <br />
+              <span className="serif">Meaningful</span> experience.
+            </h2>
+          </div>
+          <Link href="/about#experience" className="text-link">
+            The full story <ArrowUpRight size={17} />
+          </Link>
+        </div>
+        <div className="experience-list">
+          {experience.map((e, i) => (
+            <div className="experience-row" key={e.company}>
+              <span className="row-index">0{i + 1}</span>
+              <div>
+                <h3>{e.role}</h3>
+                <span>{e.company}</span>
+              </div>
+              <p>{e.description}</p>
+              <span className="experience-date">{e.date}</span>
+            </div>
+          ))}
+        </div>
+        <div className="capabilities">
+          <div>
+            <BrainCircuit />
+            <h3>Intelligence that helps.</h3>
+            <p>
+              ML models, data pipelines, and predictions connected to a real
+              purpose.
+            </p>
+          </div>
+          <div>
+            <Layers />
+            <h3>Systems that connect.</h3>
+            <p>
+              From Python APIs to React interfaces, keeping the whole experience
+              in view.
+            </p>
+          </div>
+          <div>
+            <FaGithub />
+            <h3>Learning in the open.</h3>
+            <p>Experiments and projects, built one iteration at a time.</p>
+            <a
+              href={social.github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-link"
+            >
+              Explore GitHub <ArrowUpRight size={15} />
+            </a>
+          </div>
         </div>
       </section>
-      
-      {/* Footer */}
-      <footer className="w-full py-8 border-t border-zinc-900 mt-auto text-center text-zinc-600 text-sm">
-        <p>© {new Date().getFullYear()} Pratham Dagli. All rights reserved.</p>
-      </footer>
+      <ContactCta />
     </main>
   );
 }

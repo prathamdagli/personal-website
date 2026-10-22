@@ -1,41 +1,34 @@
-# Pratham Dagli - Personal Portfolio
+# Pratham Dagli — Personal Portfolio
 
-A sleek, responsive, and modern personal portfolio for **Pratham Dagli** — an AI/ML Engineer & Full-Stack Developer. Built with Next.js and Tailwind CSS, featuring a beautiful dark mode UI, smooth scrolling navigation, and interactive project cards.
+A complete portfolio built with Next.js 16, React 19, and TypeScript. Dark editorial layouts, lime accents, an animated CSS orbital sculpture, and original project illustrations.
 
-## Features
-- **Hero Section:** Dynamic glowing effects, gradient typography, and quick links.
-- **Experience Timeline:** Detailed history of internships and roles.
-- **Projects Grid:** Showcasing featured AI/ML and full-stack projects.
-- **Skills Matrix:** A comprehensive list of technical tools and languages.
-- **Education & Certifications:** Academic background and professional certificates.
+## Pages
 
-## Tech Stack
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS (Dark Mode Glassmorphism)
-- **Icons:** React Icons (`react-icons`) & Lucide React (`lucide-react`)
-- **Language:** TypeScript
+- `/`: introduction, selected projects, profile, and experience.
+- `/work`: project collection with category filters.
+- `/work/[slug]`: five detailed project stories, architecture flows, technologies, and verified source/live links.
+- `/about`: full experience, education, skills, certifications, and resume download.
+- `/contact`: direct links, clipboard email, and an accessible email draft composer.
 
-## Running Locally
+## Development
 
-First, clone the repository and install the dependencies:
-
-```bash
-git clone https://github.com/prathamdagli/personal-website.git
-cd personal-website
-npm install
-```
-
-Then, run the development server:
-
-```bash
+```sh
+npm ci
 npm run dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Edit profile, projects, experience, skills, and certifications in `src/lib/portfolio.ts`. Replace `public/profile.jpg` to update the portrait. The resume download is the supplied PDF at `public/Pratham-Dagli-Resume.pdf`; it is independent of the website experience list.
 
-## Customization
+## Contact behavior
 
-To add your own profile picture, place a square image named `profile.jpg` in the `public/` directory and update the `src/app/page.tsx` `<img />` tag.
+The contact form validates inputs and opens a `mailto:` draft in the visitor's email application. It does not store messages or claim to send them. No email service or API credentials are required.
 
----
-*Designed & built for Pratham Dagli.*
+## Accessibility and performance
+
+Semantic landmarks, keyboard focus styles, a skip link, mobile navigation with Escape support, reduced-motion preferences, optimized portrait images, and statically generated content pages. Concept visuals are labeled; they do not claim to be application screenshots.
+
+## Deployment
+
+The existing GitHub repository is connected to Vercel. Pushing to the production branch triggers its configured deployment. Sitemap and metadata use the existing Vercel URL; update these if the canonical domain changes.

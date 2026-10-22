@@ -1,0 +1,147 @@
+{
+  "measurement": "All production .next/static JavaScript chunks, not a per-page transfer size",
+  "before": {
+    "commit": "c6f191880d3ddec416b8e5fdf4c38350a44ff03a",
+    "measurement": "All production .next/static JavaScript chunks, not a per-page transfer size",
+    "files": 19,
+    "rawBytes": 823819,
+    "gzipBytes": 266293
+  },
+  "after": {
+    "files": 24,
+    "rawBytes": 1946462,
+    "gzipBytes": 584642
+  },
+  "delta": {
+    "rawBytes": 1122643,
+    "gzipBytes": 318349
+  },
+  "chunks": [
+    {
+      "file": "chunks\\1dnqwtlpua2hv.js",
+      "rawBytes": 919176,
+      "gzipBytes": 242779
+    },
+    {
+      "file": "chunks\\2or1riwyasohw.js",
+      "rawBytes": 229597,
+      "gzipBytes": 71900
+    },
+    {
+      "file": "chunks\\0edxfzzp5eqzv.js",
+      "rawBytes": 142474,
+      "gzipBytes": 48131
+    },
+    {
+      "file": "chunks\\0do2t05ysoa-w.js",
+      "rawBytes": 163334,
+      "gzipBytes": 45063
+    },
+    {
+      "file": "chunks\\0cz1d0mv5g_q7.js",
+      "rawBytes": 112594,
+      "gzipBytes": 39627
+    },
+    {
+      "file": "chunks\\2khblt934m9wm.js",
+      "rawBytes": 70562,
+      "gzipBytes": 27310
+    },
+    {
+      "file": "chunks\\2p2jd75im6m_h.js",
+      "rawBytes": 43373,
+      "gzipBytes": 17488
+    },
+    {
+      "file": "chunks\\2qftzk3nqquly.js",
+      "rawBytes": 40703,
+      "gzipBytes": 14944
+    },
+    {
+      "file": "chunks\\134ef61sje6wy.js",
+      "rawBytes": 24118,
+      "gzipBytes": 9455
+    },
+    {
+      "file": "chunks\\2bzlqb104tejm.js",
+      "rawBytes": 33760,
+      "gzipBytes": 9018
+    },
+    {
+      "file": "chunks\\33ptr-bx5girk.js",
+      "rawBytes": 23388,
+      "gzipBytes": 8406
+    },
+    {
+      "file": "chunks\\1ujjtepx4ufhn.js",
+      "rawBytes": 20642,
+      "gzipBytes": 8043
+    },
+    {
+      "file": "chunks\\2jjw2zkgwj8-2.js",
+      "rawBytes": 21405,
+      "gzipBytes": 7708
+    },
+    {
+      "file": "chunks\\3s0wbbia2f432.js",
+      "rawBytes": 20201,
+      "gzipBytes": 7566
+    },
+    {
+      "file": "chunks\\1ofd41k97z59v.js",
+      "rawBytes": 18877,
+      "gzipBytes": 6791
+    },
+    {
+      "file": "chunks\\2j1qdg6u05qhu.js",
+      "rawBytes": 18782,
+      "gzipBytes": 5447
+    },
+    {
+      "file": "chunks\\25m7kcjm0y1uy.js",
+      "rawBytes": 11879,
+      "gzipBytes": 4454
+    },
+    {
+      "file": "chunks\\turbopack-2c3mg3r-05n1w.js",
+      "rawBytes": 11255,
+      "gzipBytes": 4390
+    },
+    {
+      "file": "chunks\\42onvq6nokjl2.js",
+      "rawBytes": 13822,
+      "gzipBytes": 3514
+    },
+    {
+      "file": "chunks\\1ckvzn7sfprko.js",
+      "rawBytes": 5584,
+      "gzipBytes": 2035
+    },
+    {
+      "file": "chunks\\0ke8irjip_0sp.js",
+      "rawBytes": 517,
+      "gzipBytes": 269
+    },
+    {
+      "file": "e-DMFqIOD9m9QU_v2I-wL\\_buildManifest.js",
+      "rawBytes": 219,
+      "gzipBytes": 154
+    },
+    {
+      "file": "e-DMFqIOD9m9QU_v2I-wL\\_ssgManifest.js",
+      "rawBytes": 104,
+      "gzipBytes": 84
+    },
+    {
+      "file": "e-DMFqIOD9m9QU_v2I-wL\\_clientMiddlewareManifest.js",
+      "rawBytes": 96,
+      "gzipBytes": 66
+    }
+  ],
+  "notes": [
+    "Includes lazy 3D, GSAP, and the Next.js security update; these totals are not initial page transfer sizes.",
+    "The neural field is a separate dynamic import delayed until its desktop hero is visible; mobile, low-power, save-data and reduced-motion visitors use a static fallback.",
+    "GSAP and Lenis are desktop fine-pointer dynamic imports, disabled for reduced motion.",
+    "No Lighthouse or browser performance trace has been measured."
+  ]
+}

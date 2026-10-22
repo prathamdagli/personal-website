@@ -23,7 +23,7 @@ Project facts and links live in `src/lib/portfolio.ts`. The portfolio makes no i
 
 ## Motion and accessibility
 
-Keep the portrait entrance, restrained page entrances, reading progress, once-only scroll reveals, experience drawers, skill drawers, workflow transitions, and contact feedback. Respect reduced motion, preserve native pointer and keyboard behavior, and keep focus indicators visible. Mobile navigation supports Escape, a focus loop, inert underlying content, and closing when crossing the desktop breakpoint. The email composer opens a draft; it does not send messages.
+Keep the portrait entrance, restrained page entrances, reading progress, once-only scroll reveals, experience drawers, skill drawers, workflow transitions, and contact feedback. Respect reduced motion, preserve native pointer and keyboard behavior, and keep focus indicators visible. Mobile navigation supports Escape, a focus loop, inert underlying content, and closing when crossing the desktop breakpoint. “Write to me” focuses the contact form. Preparing an email reveals the draft and Gmail, Outlook, email-app, and copy actions; it does not send messages.
 
 ## Local verification
 

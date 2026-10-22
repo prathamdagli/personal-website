@@ -92,6 +92,23 @@ export function ContactOrbit() {
         <span className="contact-email-rule" aria-hidden="true" />
       </a>
       <CopyEmail />
+      <div className="contact-browser-email" aria-label="Write using webmail">
+        <span>No email app?</span>
+        <a
+          href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open Gmail <ArrowUpRight size={13} />
+        </a>
+        <a
+          href={`https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(email)}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open Outlook <ArrowUpRight size={13} />
+        </a>
+      </div>
       <p className="contact-invitation-copy">
         For project ideas, internships, and collaborations in applied AI or
         software development. Tell me about the problem, the people it affects,

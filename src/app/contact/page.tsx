@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
-import { ContactForm } from "@/components/contact-form";
+import { ContactComposerLink, ContactForm } from "@/components/contact-form";
 import { ContactOrbit } from "@/components/contact-orbit";
 import { PageIntro } from "@/components/page-intro";
-import { email } from "@/lib/portfolio";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -26,9 +25,7 @@ export default function ContactPage() {
           </>
         }
       >
-        <a className="underlined-link" href={`mailto:${email}`}>
-          WRITE TO ME <ArrowUpRight size={18} />
-        </a>
+        <ContactComposerLink />
       </PageIntro>
       <section
         className="container contact-layout contact-layout-interactive"

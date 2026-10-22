@@ -23,7 +23,9 @@ Edit profile, projects, experience, skills, and certifications in `src/lib/portf
 
 ## Contact behavior
 
-The contact form validates inputs and opens a `mailto:` draft in the visitor's email application. It does not store messages or claim to send them. No email service or API credentials are required.
+“Write to me” scrolls to the contact form and focuses the name field. The form validates inputs and prepares a visible email draft with Gmail, Outlook, email-app, and clipboard options. Visitors review and send the draft themselves; the site does not store or send messages. Direct webmail links are also available beside the email address for visitors without a configured email app. No email service or API credentials are required.
+
+Check draft encoding with `node --test tests/contact-draft.test.mjs` (Node 24). With the site running, use `node tests/audit-links.mjs http://localhost:3000` to audit routes, rendered links, section anchors, PDF downloads, external destinations, and source button actions. This audit does not replace browser interaction tests.
 
 ## Accessibility and performance
 

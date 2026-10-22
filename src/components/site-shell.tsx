@@ -120,7 +120,11 @@ export function Header() {
             <ArrowUpRight />
           </Link>
         ))}
-        <a className="mobile-email" href={`mailto:${email}`}>
+        <a
+          className="mobile-email"
+          href={`mailto:${email}`}
+          onClick={() => setOpen(false)}
+        >
           {email}
         </a>
       </nav>

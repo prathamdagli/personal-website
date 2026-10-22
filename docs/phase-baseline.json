@@ -1,0 +1,7 @@
+{
+  "commit": "c6f191880d3ddec416b8e5fdf4c38350a44ff03a",
+  "measurement": "All production .next/static JavaScript chunks, not a per-page transfer size",
+  "files": 19,
+  "rawBytes": 823819,
+  "gzipBytes": 266293
+}

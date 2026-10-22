@@ -16,11 +16,29 @@ const routes = [
 ];
 const pages = new Map();
 const links = [];
+let controlledRegions = 0;
 for (const route of routes) {
   const response = await fetch(new URL(route, origin));
   assert.equal(response.status, 200, `${route} should load`);
   const html = await response.text();
   pages.set(route, html);
+  assert.equal(
+    [...html.matchAll(/<main\b/gi)].length,
+    1,
+    `${route} should have one main landmark`,
+  );
+  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
+  assert.equal(
+    new Set(ids).size,
+    ids.length,
+    `${route} contains duplicate IDs`,
+  );
+  for (const match of html.matchAll(/\baria-controls="([^"]+)"/g)) {
+    for (const id of match[1].split(/\s+/)) {
+      assert.ok(ids.includes(id), `${route} controls missing region ${id}`);
+      controlledRegions++;
+    }
+  }
   for (const match of html.matchAll(/<a\b([^>]*)>/gi)) {
     const href = /\bhref="([^"]*)"/
       .exec(match[1])?.[1]
@@ -151,6 +169,7 @@ console.log(
       routes: pages.size,
       links: links.length,
       sectionAnchors: anchorCount,
+      controlledRegions,
       buttonDeclarationsWithActions: buttons,
       resume: "valid PDF",
       external: externalResults,

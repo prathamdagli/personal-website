@@ -925,11 +925,14 @@
 }
 .contact-composer {
   min-width: 0;
-  padding-top: 0;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
 .contact-composer > .eyebrow {
   font-size: 11px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 @media (max-width: 1100px) {
@@ -1112,6 +1115,9 @@
   }
   .contact-composer > .eyebrow {
     margin-bottom: 20px;
+  }
+  .contact-composer {
+    padding: 22px;
   }
 }
 @media (max-width: 370px) {

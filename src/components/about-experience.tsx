@@ -115,41 +115,45 @@ export function AboutExperience() {
               </h3>
               <p className="journey-role">{entry.role}</p>
               <p className="journey-summary">{entry.description}</p>
-              <AnimatePresence initial={false}>
-                {open && (
-                  <motion.div
-                    key="details"
-                    id={`journey-detail-${index}`}
-                    role="region"
-                    aria-labelledby={`journey-trigger-${index}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{
-                      duration: reduced ? 0 : 0.4,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="journey-details"
-                  >
-                    <ul>
-                      {entry.bullets.map((bullet, bulletIndex) => (
-                        <motion.li
-                          key={bullet}
-                          initial={reduced ? false : { opacity: 0, y: 9 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{
-                            duration: reduced ? 0 : 0.3,
-                            delay: reduced ? 0 : bulletIndex * 0.06,
-                          }}
-                        >
-                          <span aria-hidden="true">↳</span>
-                          {bullet}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                id={`journey-detail-${index}`}
+                role="region"
+                aria-labelledby={`journey-trigger-${index}`}
+                aria-hidden={!open}
+              >
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      key="details"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        duration: reduced ? 0 : 0.4,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className="journey-details"
+                    >
+                      <ul>
+                        {entry.bullets.map((bullet, bulletIndex) => (
+                          <motion.li
+                            key={bullet}
+                            initial={reduced ? false : { opacity: 0, y: 9 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: reduced ? 0 : 0.3,
+                              delay: reduced ? 0 : bulletIndex * 0.06,
+                            }}
+                          >
+                            <span aria-hidden="true">↳</span>
+                            {bullet}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </article>
           );
         })}
@@ -199,34 +203,35 @@ export function AboutToolkit() {
             </button>
           </h3>
           <p>{group.note}</p>
-          <AnimatePresence initial={false}>
-            {expanded[index] && (
-              <motion.div
-                id={`toolkit-tools-${index}`}
-                className="toolkit-reveal"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: reduced ? 0 : 0.35 }}
-              >
-                <div className="toolkit-tools">
-                  {group.items.map((tool, i) => (
-                    <motion.span
-                      key={tool}
-                      initial={reduced ? false : { opacity: 0, x: -8 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        duration: reduced ? 0 : 0.25,
-                        delay: reduced ? 0 : i * 0.025,
-                      }}
-                    >
-                      {tool}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div id={`toolkit-tools-${index}`} aria-hidden={!expanded[index]}>
+            <AnimatePresence initial={false}>
+              {expanded[index] && (
+                <motion.div
+                  className="toolkit-reveal"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: reduced ? 0 : 0.35 }}
+                >
+                  <div className="toolkit-tools">
+                    {group.items.map((tool, i) => (
+                      <motion.span
+                        key={tool}
+                        initial={reduced ? false : { opacity: 0, x: -8 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: reduced ? 0 : 0.25,
+                          delay: reduced ? 0 : i * 0.025,
+                        }}
+                      >
+                        {tool}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <button
             type="button"
             className="toolkit-drawer-action"

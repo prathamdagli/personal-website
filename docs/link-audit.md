@@ -5,6 +5,7 @@ Checked against the production build served at localhost:3000 on 2026-10-22.
 - Nine routes returned HTTP 200.
 - 218 rendered anchor links had nonempty destinations.
 - All 40 internal section-anchor references resolved to rendered IDs.
+- All 20 controlled-region references resolved, including collapsed experience entries and skill drawers. Each route had one main landmark and no duplicate IDs.
 - Resume links returned a valid PDF.
 - Four project GitHub repositories, the GitHub profile, LinkedIn profile, and Creditscout live project returned HTTP 200.
 - All 11 button declarations in source had a click handler or submit action. These declarations include controls rendered multiple times, such as filters, experience entries, and workflow stages.
@@ -15,6 +16,8 @@ The contact header previously relied on a mailto link and could appear unrespons
 Source review covered project filters, experience navigation and accordions, skill drawers, workflow stages and restart, mobile navigation, email copy, external links, resume downloads, and section navigation. No placeholder destinations or button declarations without actions were found.
 
 Browser automation was disabled in Work settings. This was an HTTP, source-wiring, build, and draft-logic audit, not a live click or visual browser test. Actual mail delivery remains in the visitor's email provider, under their control.
+
+The follow-up review fixed the contact form's duplicated label/input focus outlines, added compact topic pills and bounded fields, improved mobile copy and action targets, and corrected text-selection contrast. Project rows now forward the DOM ref required by their filter-exit animation. Collapsible region IDs remain present when closed. Contact validation rejects whitespace-only names and messages with fewer than ten meaningful characters.
 
 Reproduce:
 

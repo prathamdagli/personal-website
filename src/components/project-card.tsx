@@ -5,17 +5,19 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import type { Project } from "@/lib/portfolio";
+import { forwardRef } from "react";
 
-export function ProjectCard({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
+export const ProjectCard = forwardRef<
+  HTMLElement,
+  {
+    project: Project;
+    index: number;
+  }
+>(function ProjectCard({ project, index }, ref) {
   const reduced = useReducedMotion();
   return (
     <motion.article
+      ref={ref}
       id={`project-${project.slug}`}
       layout={!reduced}
       initial={{ opacity: 0, y: reduced ? 0 : 18 }}
@@ -61,4 +63,4 @@ export function ProjectCard({
       </div>
     </motion.article>
   );
-}
+});

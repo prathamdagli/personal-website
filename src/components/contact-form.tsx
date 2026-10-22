@@ -66,6 +66,24 @@ export function ContactForm() {
   }, [draft, reduced]);
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const nameInput = event.currentTarget.elements.namedItem(
+      "name",
+    ) as HTMLInputElement;
+    const messageInput = event.currentTarget.elements.namedItem(
+      "message",
+    ) as HTMLTextAreaElement;
+    if (!nameInput.value.trim()) {
+      nameInput.setCustomValidity("Please enter your name.");
+      nameInput.reportValidity();
+      return;
+    }
+    if (messageInput.value.trim().length < 10) {
+      messageInput.setCustomValidity(
+        "Please add at least 10 characters about your idea.",
+      );
+      messageInput.reportValidity();
+      return;
+    }
     const data = new FormData(event.currentTarget);
     setDraft(
       prepareContactDraft(
@@ -126,7 +144,8 @@ export function ContactForm() {
           Your name
           <input
             name="name"
-            placeholder="Alex Morgan"
+            placeholder="Your full name"
+            onInput={(event) => event.currentTarget.setCustomValidity("")}
             autoComplete="name"
             required
             maxLength={100}
@@ -137,7 +156,7 @@ export function ContactForm() {
           <input
             name="email"
             type="email"
-            placeholder="alex@example.com"
+            placeholder="you@example.com"
             autoComplete="email"
             required
             maxLength={254}
@@ -148,7 +167,8 @@ export function ContactForm() {
         A little about it
         <textarea
           name="message"
-          placeholder="The idea, the challenge, or what you’d like to build…"
+          placeholder="What would you like to build together?"
+          onInput={(event) => event.currentTarget.setCustomValidity("")}
           required
           minLength={10}
           maxLength={5000}

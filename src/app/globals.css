@@ -254,9 +254,9 @@ h4 {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 43px;
+  gap: 30px;
   margin-left: auto;
-  margin-right: 55px;
+  margin-right: 30px;
 }
 .desktop-nav > a {
   display: flex;
@@ -1867,10 +1867,14 @@ h4 {
   }
   .site-header {
     padding-inline: 28px;
+    gap: 18px;
   }
   .desktop-nav {
-    gap: 27px;
-    margin-right: 25px;
+    gap: 18px;
+    margin-right: 0;
+  }
+  .header-resume {
+    display: none;
   }
   .cover {
     min-height: 720px;

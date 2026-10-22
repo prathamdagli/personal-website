@@ -8,15 +8,31 @@ import { email, social } from "@/lib/portfolio";
 
 const links = [
   ["Projects", "/work"],
-  ["Experience", "/about"],
+  ["About", "/about"],
+  ["Experience", "/about#experience"],
   ["Contact", "/contact"],
 ];
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hash, setHash] = useState("");
   const menu = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, [pathname]);
+  function currentLink(href: string) {
+    const [path, section] = href.split("#");
+    if (section) return pathname === path && hash === `#${section}`;
+    return (
+      pathname.startsWith(path) &&
+      !(path === "/about" && hash === "#experience")
+    );
+  }
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 40);
     update();
@@ -85,7 +101,16 @@ export function Header() {
             <Link
               key={href}
               href={href}
-              aria-current={pathname.startsWith(href) ? "page" : undefined}
+              onClick={() =>
+                setHash(href.includes("#") ? `#${href.split("#")[1]}` : "")
+              }
+              aria-current={
+                currentLink(href)
+                  ? href.includes("#")
+                    ? "location"
+                    : "page"
+                  : undefined
+              }
             >
               <span className="nav-number">0{i + 1}</span>
               <span className="nav-label">{label}</span>
@@ -114,7 +139,21 @@ export function Header() {
         hidden={!open}
       >
         {links.map(([label, href], i) => (
-          <Link href={href} key={href} onClick={() => setOpen(false)}>
+          <Link
+            href={href}
+            key={href}
+            aria-current={
+              currentLink(href)
+                ? href.includes("#")
+                  ? "location"
+                  : "page"
+                : undefined
+            }
+            onClick={() => {
+              setOpen(false);
+              setHash(href.includes("#") ? `#${href.split("#")[1]}` : "");
+            }}
+          >
             <span>0{i + 1}</span>
             {label}
             <ArrowUpRight />

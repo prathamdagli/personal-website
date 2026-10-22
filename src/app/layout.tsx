@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header, Footer } from "@/components/site-shell";
 import { SiteEffects } from "@/components/site-effects";
-import { RouteTransition } from "@/components/route-transition";
 import { PrecisionCursor } from "@/components/precision-cursor";
 import { siteConfig } from "@/lib/site-config";
 import { Analytics } from "@vercel/analytics/next";
@@ -62,7 +61,7 @@ export default function RootLayout({
       </head>
       <body id="top" className={`${inter.variable} ${space.variable}`}>
         <Header />
-        <RouteTransition>{children}</RouteTransition>
+        {children}
         <SiteEffects />
         <PrecisionCursor />
         <Footer />

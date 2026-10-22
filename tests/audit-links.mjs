@@ -23,6 +23,18 @@ for (const route of routes) {
   assert.equal(response.status, 200, `${route} should load`);
   const html = await response.text();
   pages.set(route, html);
+  if (["/work", "/about", "/contact"].includes(route)) {
+    const heading = html.slice(html.indexOf("<main"), html.indexOf("</h1>") + 5);
+    assert.doesNotMatch(
+      heading,
+      /style="[^"]*(?:opacity:\s*0(?:[;" ]|$)|translateY\(110%\))/,
+      `${route} heading must be visible before hydration`,
+    );
+    const streamed = await fetch(new URL(route, origin), { headers: { RSC: "1" } });
+    assert.equal(streamed.status, 200, `${route} navigation payload should load`);
+    assert.ok(streamed.headers.get("content-type")?.includes("text/x-component"));
+    assert.ok((await streamed.text()).includes('"h1"'), `${route} navigation payload should include a heading`);
+  }
   assert.equal(
     [...html.matchAll(/<main\b/gi)].length,
     1,

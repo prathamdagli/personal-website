@@ -20,19 +20,17 @@ export function SiteEffects() {
       (entries) =>
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.remove("reveal-pending");
+          entry.target.classList.add("reveal-enter");
           observer.unobserve(entry.target);
         }),
       { threshold: 0.12 },
     );
     elements.forEach((element) => {
-      if (element.getBoundingClientRect().top > window.innerHeight)
-        element.classList.add("reveal-pending");
       observer.observe(element);
     });
     return () => {
       observer.disconnect();
-      elements.forEach((e) => e.classList.remove("reveal-pending"));
+      elements.forEach((e) => e.classList.remove("reveal-enter"));
     };
   }, [pathname]);
   return (

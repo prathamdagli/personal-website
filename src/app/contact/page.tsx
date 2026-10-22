@@ -1,8 +1,9 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import type { Metadata } from "next";
-import { ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { ContactForm, CopyEmail } from "@/components/contact-form";
-import { email, social } from "@/lib/portfolio";
+import { ArrowUpRight } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+import { ContactOrbit } from "@/components/contact-orbit";
+import { PageIntro } from "@/components/page-intro";
+import { email } from "@/lib/portfolio";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -13,74 +14,31 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main id="main">
-      <section className="container page-intro contact-intro">
-        <div className="eyebrow">CONTACT / START A CONVERSATION</div>
-        <h1>
-          <span className="page-title-line">Let’s</span>
-          <span className="page-title-line">
-            talk<span className="accent">.</span>
-          </span>
-        </h1>
-        <div className="intro-bottom">
-          <p>
+      <PageIntro
+        className="contact-intro"
+        eyebrow="CONTACT / START A CONVERSATION"
+        lines={["Let’s", "talk."]}
+        description={
+          <>
             An idea to explore. A system to build. An opportunity to learn.
             <br />
             Tell me what you’re working on.
-          </p>
-          <span>AI / ML · FULL STACK · COLLABORATION</span>
-        </div>
-      </section>
-
+          </>
+        }
+      >
+        <a className="underlined-link" href={`mailto:${email}`}>
+          WRITE TO ME <ArrowUpRight size={18} />
+        </a>
+      </PageIntro>
       <section
-        className="container contact-layout"
+        className="container contact-layout contact-layout-interactive"
         aria-label="Ways to get in touch"
       >
-        <div className="contact-info">
-          <span className="eyebrow">01 / WRITE DIRECTLY</span>
-          <a
-            href={`mailto:${email}`}
-            className="email-heading"
-            aria-label={`Email ${email}`}
-          >
-            prathamdagli11
-            <br />
-            @gmail.com
-            <ArrowUpRight aria-hidden="true" />
-          </a>
-          <CopyEmail />
-          <p className="contact-note">
-            For project ideas, internships, and collaborations in applied AI or
-            software development. A little context about the problem and what
-            you have in mind is a good place to start.
-          </p>
-          <div className="contact-social-list">
-            <a href={social.github} target="_blank" rel="noreferrer">
-              <FaGithub size={20} aria-hidden="true" />
-              <div>
-                <span>GITHUB</span>
-                <strong>Explore the code</strong>
-              </div>
-              <ArrowUpRight size={19} aria-hidden="true" />
-            </a>
-            <a href={social.linkedin} target="_blank" rel="noreferrer">
-              <FaLinkedin size={20} aria-hidden="true" />
-              <div>
-                <span>LINKEDIN</span>
-                <strong>Connect with me</strong>
-              </div>
-              <ArrowUpRight size={19} aria-hidden="true" />
-            </a>
-            <a href="/Pratham-Dagli-Resume.pdf" download>
-              <ArrowDownRight size={20} aria-hidden="true" />
-              <div>
-                <span>RESUME</span>
-                <strong>The experience, on paper</strong>
-              </div>
-              <ArrowUpRight size={19} aria-hidden="true" />
-            </a>
-          </div>
+        <ContactOrbit />
+        <div className="contact-composer">
+          <span className="eyebrow">OR / GIVE THE IDEA SOME SHAPE</span>
+          <ContactForm />
         </div>
-        <ContactForm />
       </section>
       <div className="container contact-end">
         <span>PRATHAM DAGLI / COMPUTER ENGINEERING, PDEU</span>

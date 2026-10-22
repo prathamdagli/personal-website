@@ -1,6 +1,309 @@
+"use client";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
+import {
+  ArrowUpRight,
+  Check,
+  Circle,
+  FileText,
+  Layers,
+  Search,
+  Sparkles,
+  GitBranch,
+  ShieldCheck,
+  Leaf,
+  Command,
+} from "lucide-react";
+const names: Record<string, string> = {
+  "complaint-tracker": "ComplaintTracker AI",
+  creditscout: "Creditscout",
+  greenhydro: "GreenHydro",
+  jobwemet: "JobWeMet",
+  "formula-one": "Race intelligence",
+};
+function WindowBar({ slug }: { slug: string }) {
+  return (
+    <div className="product-window-bar">
+      <span className="window-dots">
+        <i />
+        <i />
+        <i />
+      </span>
+      <span>{names[slug]}</span>
+      <span className="window-command">
+        <Command size={10} /> K
+      </span>
+    </div>
+  );
+}
+function ComplaintPreview() {
+  return (
+    <div className="triage-app">
+      <aside className="app-rail">
+        <span className="app-symbol">
+          <Layers size={19} />
+        </span>
+        <span className="rail-active">
+          <FileText size={16} />
+        </span>
+        <GitBranch size={16} />
+        <ShieldCheck size={16} />
+        <span className="rail-avatar">PD</span>
+      </aside>
+      <div className="triage-main">
+        <div className="product-breadcrumb">
+          WORKSPACE <span>/</span> COMPLAINT INTELLIGENCE
+        </div>
+        <div className="product-title">
+          <h3>
+            Every voice.
+            <br />
+            <span>A clear next step.</span>
+          </h3>
+          <span className="small-status">
+            <i /> Triage workspace
+          </span>
+        </div>
+        <div className="sample-strip">
+          <span>01 / INTAKE</span>
+          <span>02 / UNDERSTAND</span>
+          <span>03 / RESOLVE</span>
+        </div>
+        <div className="triage-content">
+          <div className="ticket-list">
+            <div className="mini-section">
+              INCOMING REQUESTS <Search size={12} />
+            </div>
+            {[
+              ["Billing", "Charged twice for my subscription", "Web portal"],
+              ["Technical", "Unable to sign in to my account", "Telegram"],
+              ["Service", "An update on my open request", "Web portal"],
+            ].map(([tag, text, source], i) => (
+              <div
+                className={`sample-ticket ${i === 0 ? "ticket-active" : ""}`}
+                key={text}
+              >
+                <div>
+                  <span className="ticket-id">#00{i + 1}</span>
+                  <span>{tag}</span>
+                </div>
+                <strong>{text}</strong>
+                <small>
+                  {source}
+                  <ArrowUpRight size={11} />
+                </small>
+              </div>
+            ))}
+          </div>
+          <div className="ticket-insight">
+            <span className="insight-icon">
+              <Sparkles size={20} />
+            </span>
+            <span className="mini-section">INTELLIGENCE LAYER</span>
+            <h4>
+              Understand.
+              <br />
+              Then act.
+            </h4>
+            <div className="insight-row">
+              <span>Classification</span>
+              <strong>Billing</strong>
+            </div>
+            <div className="insight-row">
+              <span>Sentiment</span>
+              <strong>Negative</strong>
+            </div>
+            <div className="insight-row">
+              <span>Next step</span>
+              <strong>Support review</strong>
+            </div>
+            <div className="sample-note">
+              Illustrative request · sample workflow
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+function HydroPreview() {
+  return (
+    <div className="hydro-app">
+      <div className="hydro-heading">
+        <span>
+          <Leaf size={18} /> GREENHYDRO
+        </span>
+        <span>PRODUCTION → PROOF</span>
+      </div>
+      <div className="hydro-body">
+        <div className="hydro-molecule" aria-hidden="true">
+          <span>
+            H<sub>2</sub>
+          </span>
+          <i className="molecule-orbit" />
+          <i className="molecule-orbit orbit-two" />
+          <i className="molecule-dot" />
+        </div>
+        <div className="hydro-dossier">
+          <div className="mini-section">
+            CERTIFICATION WORKSPACE / CONCEPT VIEW
+          </div>
+          <h3>
+            Energy, with
+            <br />a paper trail.
+          </h3>
+          <div className="dossier-file">
+            <FileText size={25} />
+            <div>
+              <strong>Production record</strong>
+              <span>Document & environmental data</span>
+            </div>
+            <ArrowUpRight size={17} />
+          </div>
+          {[
+            "Production data submitted",
+            "ML consistency analysis",
+            "Certification review",
+            "Contract workflow",
+          ].map((s, i) => (
+            <div className="hydro-step" key={s}>
+              <span>{i < 2 ? <Check size={12} /> : <Circle size={11} />}</span>
+              <strong>{s}</strong>
+              <small>0{i + 1}</small>
+            </div>
+          ))}
+          <span className="sample-note">
+            Experimental ML + blockchain workflow
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+function CareerPreview() {
+  return (
+    <div className="career-app">
+      <div className="career-top">
+        <span>
+          jobwe<span>met</span>
+          <i />
+        </span>
+        <span>YOUR NEXT CHAPTER, MAPPED.</span>
+      </div>
+      <div className="career-dashboard">
+        <div className="career-profile">
+          <div className="resume-page">
+            <FileText size={27} />
+            <strong>Your experience.</strong>
+            <span>Your potential.</span>
+            <i />
+            <i />
+            <i />
+            <div className="resume-tags">
+              <span>Python</span>
+              <span>React</span>
+              <span>SQL</span>
+            </div>
+          </div>
+          <span className="mini-section">01 / RESUME & SKILLS</span>
+        </div>
+        <div className="career-path-panel">
+          <span className="mini-section">02 / A DIRECTION WORTH EXPLORING</span>
+          <h3>
+            Turn “what next?”
+            <br />
+            into a plan.
+          </h3>
+          <div className="career-target">
+            <span>
+              <Sparkles size={15} /> ROLE EXPLORATION
+            </span>
+            <strong>Machine Learning Engineer</strong>
+            <small>Illustrative career pathway</small>
+          </div>
+          <div className="roadmap-track">
+            {["Foundations", "Model building", "Deploy & learn"].map((s, i) => (
+              <div key={s}>
+                <span>0{i + 1}</span>
+                <strong>{s}</strong>
+                <i />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+function FormulaPreview() {
+  return (
+    <div className="race-app">
+      <div className="race-top">
+        <span>
+          F<span>1</span> / FIELD NOTES
+        </span>
+        <span>PYTHON · PANDAS · EXPLORATION</span>
+      </div>
+      <div className="race-body">
+        <div>
+          <span className="mini-section">AN EXPLORATORY DATA STUDY</span>
+          <h3>
+            Beyond
+            <br />
+            the podium<span>.</span>
+          </h3>
+          <div className="race-dataset">
+            <strong>
+              500<span>+</span>
+            </strong>
+            <span>
+              RACES IN
+              <br />
+              THE DATASET
+            </span>
+          </div>
+          <span className="sample-note">Performance / Strategy / Patterns</span>
+        </div>
+        <div className="notebook-preview">
+          <div className="notebook-cell">
+            <span>In [01]</span>
+            <code>
+              <b>import</b> pandas <b>as</b> pd
+              <br />
+              <b>import</b> seaborn <b>as</b> sns
+            </code>
+          </div>
+          <div className="notebook-cell">
+            <span>In [02]</span>
+            <code>
+              <em># Start with better questions.</em>
+              <br />
+              races.groupby(<q>constructor</q>)<br />
+              &nbsp; .agg(<q>performance</q>)
+            </code>
+          </div>
+          <div className="race-questions">
+            <span>RESEARCH LENSES</span>
+            {["Driver performance", "Team comparisons", "Race strategy"].map(
+              (s, i) => (
+                <div key={s}>
+                  <small>0{i + 1}</small>
+                  {s}
+                  <ArrowUpRight size={13} />
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 export function ProjectVisual({
   slug,
   large = false,
@@ -8,257 +311,71 @@ export function ProjectVisual({
   slug: string;
   large?: boolean;
 }) {
+  const reduced = useReducedMotion();
+  const x = useMotionValue(0),
+    y = useMotionValue(0);
+  const rotateX = useSpring(y, { stiffness: 110, damping: 24 });
+  const rotateY = useSpring(x, { stiffness: 110, damping: 24 });
   return (
     <div
-      className={`project-visual art-${slug} ${large ? "visual-large" : ""}`}
-      role="img"
-      aria-label={`${slug.replaceAll("-", " ")} — illustrated system overview`}
+      className={`project-visual product-stage stage-${slug} ${large ? "visual-large" : ""}`}
+      onPointerMove={(e) => {
+        if (reduced || e.pointerType !== "mouse") return;
+        const r = e.currentTarget.getBoundingClientRect();
+        x.set(((e.clientX - r.left) / r.width - 0.5) * 7);
+        y.set(-((e.clientY - r.top) / r.height - 0.5) * 7);
+      }}
+      onPointerLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
     >
-      {slug === "complaint-tracker" && (
-        <>
-          <div className="art-topline">
-            <span>COMPLAINTTRACKER / AI</span>
-            <span>HUMAN INPUT. MACHINE UNDERSTANDING.</span>
-          </div>
-          <div className="complaint-art">
-            <div className="complaint-poster-type">
-              EVERY
-              <br />
-              VOICE<span className="poster-red">.</span>
-            </div>
-            <svg
-              viewBox="0 0 500 420"
-              className="complaint-network"
-              aria-hidden="true"
-            >
-              <g fill="none" stroke="currentColor" strokeWidth="1">
-                <path d="M20 90 C160 90 120 210 235 210M20 210H235M20 330C160 330 120 210 235 210M235 210C340 210 330 70 430 70M235 210C340 210 330 165 430 165M235 210C340 210 330 260 430 260M235 210C340 210 330 355 430 355" />
-                <circle cx="235" cy="210" r="55" />
-                <circle cx="235" cy="210" r="64" strokeDasharray="2 7" />
-              </g>
-              <g fill="currentColor">
-                <circle cx="20" cy="90" r="5" />
-                <circle cx="20" cy="210" r="5" />
-                <circle cx="20" cy="330" r="5" />
-                <circle cx="430" cy="70" r="5" />
-                <circle cx="430" cy="165" r="5" />
-                <circle cx="430" cy="260" r="5" />
-                <circle cx="430" cy="355" r="5" />
-              </g>
-              <circle cx="235" cy="210" r="42" fill="#c44832" />
-              <text
-                x="235"
-                y="215"
-                textAnchor="middle"
-                fill="#f0eae0"
-                fontSize="15"
-                fontFamily="monospace"
-              >
-                NLP
-              </text>
-              <g fill="currentColor" fontSize="11" fontFamily="monospace">
-                <text x="443" y="74">
-                  01
-                </text>
-                <text x="443" y="169">
-                  02
-                </text>
-                <text x="443" y="264">
-                  03
-                </text>
-                <text x="443" y="359">
-                  04
-                </text>
-              </g>
-            </svg>
-          </div>
-          <div className="art-bottomline">
-            <span>CLASSIFY / PRIORITIZE / RESOLVE</span>
-            <span>
-              TF-IDF + LOGISTIC REGRESSION <ArrowUpRight size={13} />
+      <div className="stage-grid" aria-hidden="true" />
+      <div className="stage-caption">
+        <span>PD / PROJECT 0{Object.keys(names).indexOf(slug) + 1}</span>
+        <span>
+          {slug === "creditscout"
+            ? "CAPTURED FROM THE LIVE PROJECT"
+            : "PRODUCT INTERFACE STUDY"}
+        </span>
+      </div>
+      <motion.div
+        className="product-window"
+        style={{
+          rotateX: reduced ? 0 : rotateX,
+          rotateY: reduced ? 0 : rotateY,
+        }}
+      >
+        <WindowBar slug={slug} />
+        {slug === "complaint-tracker" ? (
+          <ComplaintPreview />
+        ) : slug === "greenhydro" ? (
+          <HydroPreview />
+        ) : slug === "jobwemet" ? (
+          <CareerPreview />
+        ) : slug === "formula-one" ? (
+          <FormulaPreview />
+        ) : (
+          <div className="credit-real-interface">
+            <Image
+              src="/work/creditscout-interface.png"
+              alt="Actual Creditscout website, showing its credit readiness product"
+              width={1265}
+              height={712}
+              sizes="(max-width:700px) 90vw,1100px"
+            />
+            <span className="credit-interface-stamp">
+              CREDITSCOUT / LIVE INTERFACE
             </span>
           </div>
-        </>
-      )}
-      {slug === "creditscout" && (
-        <>
-          <div className="art-topline">
-            <span>CREDITSCOUT</span>
-            <span>BEHAVIORAL CREDIT INTELLIGENCE</span>
-          </div>
-          <div className="credit-art">
-            <div className="credit-art-heading">
-              A different
-              <br />
-              kind of <em>credit.</em>
-            </div>
-            <div className="credit-browser">
-              <div className="browser-caption">
-                <i />
-                <i />
-                <i />
-                <span>CREDITSCOUT / LIVE INTERFACE</span>
-              </div>
-              <Image
-                src="/work/creditscout-interface.png"
-                alt="Creditscout landing page interface"
-                width={1265}
-                height={712}
-                sizes="(max-width:700px) 80vw,650px"
-              />
-            </div>
-          </div>
-          <div className="art-bottomline">
-            <span>TRANSACTIONS → BEHAVIOR → READINESS</span>
-            <span>
-              XGBOOST / FASTAPI <ArrowUpRight size={13} />
-            </span>
-          </div>
-        </>
-      )}
-      {slug === "greenhydro" && (
-        <>
-          <div className="art-topline">
-            <span>GREENHYDRO</span>
-            <span>ENERGY / INTELLIGENCE / TRUST</span>
-          </div>
-          <div className="hydrogen-art">
-            <svg
-              className="hydrogen-contours"
-              viewBox="0 0 650 400"
-              aria-hidden="true"
-            >
-              {Array.from({ length: 18 }, (_, i) => (
-                <ellipse
-                  key={i}
-                  cx="325"
-                  cy="200"
-                  rx={100 + i * 10}
-                  ry={30 + i * 7}
-                  transform={`rotate(${i * 5} 325 200)`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth=".7"
-                />
-              ))}
-            </svg>
-            <span className="hydrogen-type">
-              H<span>2</span>
-            </span>
-            <span className="hydrogen-small">
-              LESS DOUBT.
-              <br />
-              MORE TRACEABILITY.
-            </span>
-          </div>
-          <div className="art-bottomline">
-            <span>PRODUCTION → VALIDATION → CERTIFICATION</span>
-            <span>
-              ML + BLOCKCHAIN <ArrowUpRight size={13} />
-            </span>
-          </div>
-        </>
-      )}
-      {slug === "jobwemet" && (
-        <>
-          <div className="art-topline">
-            <span>JOBWEMET</span>
-            <span>A CAREER IS A PATH. NOT A GUESS.</span>
-          </div>
-          <div className="career-art">
-            <svg viewBox="0 0 700 360" aria-hidden="true">
-              <path
-                d="M60 280H220Q270 280 270 230V160Q270 110 320 110H405Q455 110 455 160V240Q455 290 505 290H560Q610 290 610 240V70"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M595 85l15-15 15 15"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-              <circle cx="60" cy="280" r="11" fill="#c44832" />
-              {[
-                [270, 170],
-                [410, 110],
-                [525, 290],
-              ].map(([cx, cy]) => (
-                <circle key={cx} cx={cx} cy={cy} r="6" fill="currentColor" />
-              ))}
-              <g fontFamily="monospace" fontSize="12" fill="currentColor">
-                <text x="38" y="315">
-                  YOU
-                </text>
-                <text x="288" y="175">
-                  SKILLS
-                </text>
-                <text x="385" y="88">
-                  INSIGHT
-                </text>
-                <text x="500" y="320">
-                  LEARNING
-                </text>
-                <text x="548" y="46">
-                  WHAT’S NEXT
-                </text>
-              </g>
-            </svg>
-            <span className="career-art-type">
-              YOUR NEXT
-              <br />
-              CHAPTER<span>.</span>
-            </span>
-          </div>
-          <div className="art-bottomline">
-            <span>RESUME → SKILL GAPS → LEARNING ROADMAP</span>
-            <span>
-              GEMINI / REACT <ArrowUpRight size={13} />
-            </span>
-          </div>
-        </>
-      )}
-      {slug === "formula-one" && (
-        <>
-          <div className="art-topline">
-            <span>FORMULA 1 / DATA STUDY</span>
-            <span>THE PATTERNS BEHIND THE PODIUM</span>
-          </div>
-          <div className="formula-art">
-            <span className="formula-type">
-              F<span>1</span>
-            </span>
-            <svg viewBox="0 0 500 240" aria-hidden="true">
-              <path
-                d="M85 170C15 160 30 65 110 65H370Q460 65 420 135L360 185Q340 203 302 175L250 130Q220 112 190 150L160 175Q130 200 85 170Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <path
-                d="M85 170C15 160 30 65 110 65H370Q460 65 420 135L360 185Q340 203 302 175L250 130Q220 112 190 150L160 175Q130 200 85 170Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="14"
-                opacity=".08"
-              />
-              <circle cx="190" cy="65" r="6" fill="#c44832" />
-            </svg>
-            <span className="formula-small">
-              500+ RACES
-              <br />
-              ONE DATASET.
-            </span>
-          </div>
-          <div className="art-bottomline">
-            <span>PERFORMANCE / STRATEGY / EXPLORATION</span>
-            <span>
-              PYTHON / PANDAS <ArrowUpRight size={13} />
-            </span>
-          </div>
-        </>
-      )}
+        )}
+      </motion.div>
+      <div className="stage-footer">
+        <span>{names[slug]}</span>
+        <span>
+          IDEA → WORKING SYSTEM <ArrowUpRight size={12} />
+        </span>
+      </div>
     </div>
   );
 }

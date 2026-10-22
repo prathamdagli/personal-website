@@ -2,10 +2,11 @@ import { FaGithub } from "react-icons/fa";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/portfolio";
 import { ProjectVisual } from "@/components/project-visual";
 import { ContactCta } from "@/components/site-shell";
+import { ProjectLab } from "@/components/project-lab";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -38,7 +39,7 @@ export default async function ProjectPage({
           <ArrowLeft size={16} />
           All projects
         </Link>
-        <div className="project-detail-heading">
+        <div className="project-detail-heading" data-reveal>
           <div className="eyebrow">
             PROJECT 0{index + 1} / {p.category.toUpperCase()}
           </div>
@@ -49,7 +50,13 @@ export default async function ProjectPage({
           <p>{p.short}</p>
         </div>
         <ProjectVisual slug={p.slug} large />
-        <div className="project-overview">
+        <nav className="case-chapter-nav" aria-label="Case study chapters">
+          <span>PROJECT 0{index + 1}</span>
+          <a href="#context">01 / Context</a>
+          <a href="#system">02 / System</a>
+          <a href="#details">03 / Details</a>
+        </nav>
+        <div className="project-overview" data-reveal>
           <div>
             <span className="eyebrow">OVERVIEW</span>
             <p>{p.description}</p>
@@ -93,30 +100,22 @@ export default async function ProjectPage({
             )}
           </div>
         </div>
-        <div className="case-section">
+        <div className="case-section" id="context" data-reveal>
           <span className="eyebrow">01 / THE CONTEXT</span>
           <div>
             <h2>The challenge.</h2>
             <p>{p.challenge}</p>
           </div>
         </div>
-        <div className="case-section">
+        <div className="case-section" id="system" data-reveal>
           <span className="eyebrow">02 / THE APPROACH</span>
           <div>
             <h2>The system.</h2>
             <p>{p.approach}</p>
-            <div className="flow-diagram">
-              {p.flow.map((f, i) => (
-                <div key={f}>
-                  <span>0{i + 1}</span>
-                  <strong>{f}</strong>
-                  {i < p.flow.length - 1 && <ArrowRight size={16} />}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
-        <div className="case-section">
+        <ProjectLab project={p} />
+        <div className="case-section" id="details" data-reveal>
           <span className="eyebrow">03 / IN THE DETAILS</span>
           <div>
             <h2>What it does.</h2>
@@ -130,7 +129,7 @@ export default async function ProjectPage({
             </ul>
           </div>
         </div>
-        <div className="project-next">
+        <div className="project-next" data-reveal>
           <span className="eyebrow">KEEP EXPLORING / NEXT PROJECT</span>
           <Link href={`/work/${next.slug}`}>
             {next.title}

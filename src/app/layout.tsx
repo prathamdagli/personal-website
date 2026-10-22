@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import { Header, Footer } from "@/components/site-shell";
 import { SiteEffects } from "@/components/site-effects";
 import "./globals.css";
+import "./experience.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { certifications, experience, skills } from "@/lib/portfolio";
+import { certifications } from "@/lib/portfolio";
 import { ContactCta } from "@/components/site-shell";
+import { PageIntro } from "@/components/page-intro";
+import { AboutExperience, AboutToolkit } from "@/components/about-experience";
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,23 +16,22 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main id="main">
-      <section className="container page-intro about-intro">
-        <div className="eyebrow">ABOUT / PRATHAM DAGLI</div>
-        <h1>
-          <span className="page-title-line">The person.</span>
-          <span className="page-title-line">The practice.</span>
-        </h1>
-        <div className="intro-bottom">
-          <p>
+      <PageIntro
+        className="about-intro"
+        eyebrow="ABOUT / PRATHAM DAGLI"
+        lines={["The person.", "The practice."]}
+        description={
+          <>
             Computer Engineering at PDEU.
             <br />
             Working across machine learning, software, and cloud infrastructure.
-          </p>
-          <a href="#experience" className="text-link">
-            Explore my experience <ArrowDownRight size={18} />
-          </a>
-        </div>
-      </section>
+          </>
+        }
+      >
+        <a href="#experience" className="text-link">
+          Explore my experience <ArrowDownRight size={18} />
+        </a>
+      </PageIntro>
 
       <section
         className="container about-story"
@@ -113,26 +114,7 @@ export default function AboutPage() {
             to building the infrastructure.
           </p>
         </div>
-        <div className="detailed-experience">
-          {experience.map((e, i) => (
-            <div key={e.company}>
-              <div className="experience-side">
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                <span>{e.date}</span>
-              </div>
-              <div>
-                <h3>{e.company}</h3>
-                <h4>{e.role}</h4>
-                <p>{e.description}</p>
-                <ul>
-                  {e.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+        <AboutExperience />
       </section>
 
       <section className="toolkit-band" aria-labelledby="toolkit-title">
@@ -152,20 +134,7 @@ export default function AboutPage() {
               data, interfaces, and systems.
             </p>
           </div>
-          <div className="toolkit-grid">
-            {skills.map((s, i) => (
-              <div key={s.name}>
-                <span className="eyebrow">0{i + 1}</span>
-                <h3>{s.name}</h3>
-                <p>{s.note}</p>
-                <div className="tags">
-                  {s.items.map((t) => (
-                    <span key={t}>{t}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <AboutToolkit />
         </div>
       </section>
 

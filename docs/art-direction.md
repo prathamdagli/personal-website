@@ -26,3 +26,13 @@ The public ComplaintTracker and JobWeMet deployment URLs returned 404 during rev
 ## Motion and accessibility
 
 The cover uses a short text entrance and scroll-linked portrait depth. Scroll reveals run once and preserve reading order. Custom project cursors appear only for a fine pointer, never replace the standard pointer, and respect reduced motion. Mobile navigation supports Escape, a focus loop, inert underlying content, and closing when crossing the desktop breakpoint. The email composer opens a draft; it does not claim to send messages.
+
+## Full-site interaction pass
+
+Work now uses full-width, numbered project chapters with spring-driven perspective, category filtering with animated layout changes, and a sticky filter bar. The previous abstract poster covers have been replaced by detailed, code-native product interface studies. These studies are labeled as such; they are design presentations of the documented functionality, not screenshots of shipped interfaces. Creditscout retains the actual captured interface. Sample complaints, queue states, career paths, and production records are explicitly illustrative. Formula 1 uses a notebook-style research cover instead of fabricated analysis charts.
+
+All five case studies have a keyboard-operable, four-stage workflow walkthrough, grounded in the project descriptions, plus sticky chapter navigation. No portfolio interaction calls a live model, calculates financial eligibility, or issues certification. Creditscout's synthetic training data and the experimental GreenHydro scope remain explicit.
+
+Shared page headings enter through clipped line reveals. A spring reading indicator follows page scroll. The home introduction fills its words as it enters the viewport; the discipline ribbon moves with scroll. About has an indexed, scroll-aware career timeline, expandable role details, and skill drawers. Contact has a bounded magnetic email link and an animated channel selector. All motion components honor reduced-motion preferences; touch and keyboard navigation retain native links and buttons.
+
+Implementation styles are in `src/app/experience.css`; the source handoff CSS for Astra's About/Contact components is retained in `docs/about-contact-motion.css`.

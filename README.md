@@ -6,7 +6,7 @@ A complete portfolio built with Next.js 16, React 19, and TypeScript. An editori
 
 - `/`: introduction, selected projects, profile, and experience.
 - `/work`: project collection with category filters.
-- `/work/[slug]`: five detailed project stories, architecture flows, technologies, and verified source/live links.
+- `/work/[slug]`: five detailed project stories, interactive architecture walkthroughs, technologies, and source/live links.
 - `/about`: full experience, education, skills, certifications, and resume download.
 - `/contact`: direct links, clipboard email, and an accessible email draft composer.
 
@@ -27,7 +27,7 @@ The contact form validates inputs and opens a `mailto:` draft in the visitor's e
 
 ## Accessibility and performance
 
-Semantic landmarks, keyboard focus styles, a skip link, mobile navigation with a focus loop and Escape support, reduced-motion preferences, optimized portrait images, and statically generated content pages. Project illustrations show system concepts; Creditscout uses an actual capture of its public interface. See `docs/art-direction.md` for asset sources and the portrait treatment prompt.
+Semantic landmarks, keyboard focus styles, a skip link, mobile navigation with a focus loop and Escape support, reduced-motion preferences, optimized portrait images, and statically generated content pages. Project covers are labeled product interface studies; Creditscout uses an actual capture of its public interface. All five case studies include button-operated workflow walkthroughs. About includes an indexed experience accordion and skill drawers; Contact includes a magnetic email link and channel selection. See `docs/art-direction.md` for asset sources, motion behavior, and the portrait treatment prompt.
 
 ## Deployment
 

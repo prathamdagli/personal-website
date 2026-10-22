@@ -5,6 +5,10 @@ import { experience, projects } from "@/lib/portfolio";
 import { Hero } from "@/components/hero";
 import { ContactCta } from "@/components/site-shell";
 import { ProjectVisual } from "@/components/project-visual";
+import {
+  ScrollStatement,
+  DisciplineRibbon,
+} from "@/components/scroll-statement";
 
 export default function Home() {
   return (
@@ -16,13 +20,7 @@ export default function Home() {
             <span>01 / THE WAY I THINK</span>
             <ArrowDownRight size={23} />
           </div>
-          <h2 data-reveal>
-            I work where
-            <br />
-            <span className="muted-ink">machine intelligence</span>
-            <br />
-            meets the real world<span className="accent">.</span>
-          </h2>
+          <ScrollStatement />
           <div className="intro-details">
             <p>
               Computer Engineering at PDEU. Hands-on experience in machine
@@ -124,6 +122,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <DisciplineRibbon />
       <section className="practice-section">
         <div className="container practice-layout">
           <div className="practice-photo" data-reveal>

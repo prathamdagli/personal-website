@@ -2,15 +2,21 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
 
 export function SiteEffects() {
   const pathname = usePathname();
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 150, damping: 32 });
   const cursor = useRef<HTMLDivElement>(null);
   useEffect(() => {
     cursor.current?.classList.remove("cursor-visible");
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const elements = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+      document.querySelectorAll<HTMLElement>(
+        "[data-reveal], main > section:not(.cover):not(.kinetic-intro) .section-label, .contact-cta .big-contact, .project-next, .certification-list > *, .education-list > *",
+      ),
     );
     const observer = new IntersectionObserver(
       (entries) =>
@@ -62,8 +68,15 @@ export function SiteEffects() {
     };
   }, []);
   return (
-    <div ref={cursor} className="project-cursor" aria-hidden="true">
-      VIEW
-    </div>
+    <>
+      <motion.div
+        className="reading-progress"
+        style={{ scaleX: reduced ? scrollYProgress : progress }}
+        aria-hidden="true"
+      />
+      <div ref={cursor} className="project-cursor" aria-hidden="true">
+        VIEW
+      </div>
+    </>
   );
 }

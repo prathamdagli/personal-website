@@ -8,9 +8,9 @@ import { PageIntro } from "@/components/page-intro";
 import { AboutExperience, AboutToolkit } from "@/components/about-experience";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About & Experience",
   description:
-    "Pratham Dagli: Computer Engineering at PDEU, practical machine learning, full-stack development, and the experience behind the work.",
+    "Pratham Dagli’s background, professional experience, and approach to AI engineering. Computer Engineering at PDEU, applied machine learning, and cloud infrastructure.",
 };
 
 export default function AboutPage() {
@@ -18,8 +18,8 @@ export default function AboutPage() {
     <main id="main">
       <PageIntro
         className="about-intro"
-        eyebrow="ABOUT / PRATHAM DAGLI"
-        lines={["The person", "behind the work."]}
+        eyebrow="ABOUT & EXPERIENCE / PRATHAM DAGLI"
+        lines={["My background.", "My experience."]}
         description={
           <>
             Computer Engineering at PDEU.
@@ -106,7 +106,7 @@ export default function AboutPage() {
         <div className="section-heading chapter-heading">
           <div>
             <span className="eyebrow">01 / EXPERIENCE</span>
-            <h2 id="experience-title">Work, so far.</h2>
+            <h2 id="experience-title">Professional experience.</h2>
           </div>
           <p>
             From teaching the fundamentals

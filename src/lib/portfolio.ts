@@ -6,7 +6,7 @@ export const social = {
 export type Project = {
   slug: string;
   title: string;
-  category: "Applied AI" | "Full stack" | "Data science";
+  category: "Applied AI" | "AI systems" | "Data science";
   short: string;
   description: string;
   stack: string[];
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     slug: "greenhydro",
     title: "GreenHydro",
-    category: "Full stack",
+    category: "AI systems",
     color: "green",
     short: "A more transparent path to green certification.",
     description:
@@ -107,7 +107,7 @@ export const projects: Project[] = [
   {
     slug: "jobwemet",
     title: "JobWeMet",
-    category: "Full stack",
+    category: "AI systems",
     color: "peach",
     short: "Turning career uncertainty into a learning roadmap.",
     description:
@@ -188,7 +188,7 @@ export const experience = [
     bullets: [
       "Built and deployed KNN and Logistic Regression models.",
       "Integrated model inference with RESTful APIs using FastAPI.",
-      "Connected data pipelines with full-stack application workflows.",
+      "Connected data pipelines with application workflows.",
     ],
   },
   {
@@ -244,7 +244,16 @@ export const skills = [
   {
     name: "Infrastructure",
     note: "Connecting the pieces that matter.",
-    items: ["AWS", "FastAPI", "Firebase", "SQL", "Git", "GitHub", "C++", "Java"],
+    items: [
+      "AWS",
+      "FastAPI",
+      "Firebase",
+      "SQL",
+      "Git",
+      "GitHub",
+      "C++",
+      "Java",
+    ],
   },
 ];
 export const certifications = [

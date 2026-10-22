@@ -21,7 +21,7 @@ export default function Home() {
           <div className="intro-details">
             <p>
               Computer Engineering at PDEU. Hands-on experience in machine
-              learning, full-stack development, and cloud infrastructure. I like
+              learning, AI systems, and cloud infrastructure. I like
               understanding the whole system — and building the parts that make
               it useful.
             </p>
@@ -43,12 +43,12 @@ export default function Home() {
       </section>
       <section id="selected-work" className="selected-work section container">
         <div className="section-label">
-          <span>02 / SELECTED WORK</span>
+          <span>02 / SELECTED PROJECTS</span>
           <span>IDEAS → SYSTEMS → EXPERIENCES</span>
         </div>
         <div className="work-heading" data-reveal>
           <h2>
-            Selected work<span>.</span>
+            Selected projects<span>.</span>
           </h2>
           <Link href="/work" className="underlined-link">
             THE COMPLETE INDEX <ArrowUpRight size={18} />

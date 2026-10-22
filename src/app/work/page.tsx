@@ -3,9 +3,9 @@ import { ProjectExplorer } from "@/components/project-explorer";
 import { ContactCta } from "@/components/site-shell";
 import { PageIntro } from "@/components/page-intro";
 export const metadata: Metadata = {
-  title: "Selected Work",
+  title: "Projects",
   description:
-    "Explore Pratham Dagli’s applied AI, full-stack, and data science projects, from complaint intelligence to credit readiness.",
+    "Explore Pratham Dagli’s AI engineering and data science projects, from complaint intelligence to credit readiness.",
 };
 export default function WorkPage() {
   return (
@@ -13,7 +13,7 @@ export default function WorkPage() {
       <PageIntro
         className="work-intro"
         eyebrow="THE PROJECT INDEX / 01—05"
-        lines={["Ideas into", "working systems."]}
+        lines={["Selected", "projects."]}
         description={
           <p>
             Five explorations in intelligence, interfaces, and the connections

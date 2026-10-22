@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-export const alt = "Pratham Dagli — Engineer & Developer";
+export const alt = "Pratham Dagli — AI Engineering";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function OpenGraphImage() {
@@ -26,7 +26,7 @@ export default function OpenGraphImage() {
         }}
       >
         <span>PRATHAM DAGLI</span>
-        <span>ENGINEER & BUILDER</span>
+        <span>AI ENGINEERING</span>
       </div>
       <div
         style={{
@@ -51,7 +51,7 @@ export default function OpenGraphImage() {
           color: "#a1aab6",
         }}
       >
-        AI / ML · FULL-STACK DEVELOPMENT · PDEU
+        AI ENGINEERING · MACHINE LEARNING · PDEU
       </div>
     </div>,
     size,

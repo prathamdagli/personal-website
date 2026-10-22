@@ -7,8 +7,8 @@ import { ArrowUpRight, ArrowUp, Menu, X } from "lucide-react";
 import { email, social } from "@/lib/portfolio";
 
 const links = [
-  ["Work", "/work"],
-  ["About", "/about"],
+  ["Projects", "/work"],
+  ["Experience", "/about"],
   ["Contact", "/contact"],
 ];
 export function Header() {
@@ -78,7 +78,7 @@ export function Header() {
         className={`site-header ${scrolled || pathname !== "/" ? "header-solid" : ""}`}
       >
         <Link href="/" className="site-name" onClick={() => setOpen(false)}>
-          Pratham Dagli<span>ENGINEER & DEVELOPER</span>
+          Pratham Dagli<span>AI ENGINEERING</span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map(([label, href], i) => (

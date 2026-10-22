@@ -17,15 +17,15 @@ const space = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://personal-website-puce-two-38.vercel.app"),
   title: {
-    default: "Pratham Dagli — AI / ML Engineer & Builder",
+    default: "Pratham Dagli — AI Engineering",
     template: "%s — Pratham Dagli",
   },
   description:
-    "Pratham Dagli is an AI/ML engineer and full-stack developer studying Computer Engineering at PDEU. Explore projects that turn data, code, and curiosity into useful experiences.",
+    "Pratham Dagli focuses on AI engineering, applied machine learning, and cloud infrastructure while studying Computer Engineering at PDEU. Explore projects and professional experience.",
   openGraph: {
-    title: "Pratham Dagli — AI / ML Engineer & Builder",
+    title: "Pratham Dagli — AI Engineering",
     description:
-      "Pratham Dagli. AI/ML, full-stack development, and the systems in between. Explore the work and the person behind it.",
+      "Pratham Dagli. AI engineering, applied machine learning, and cloud infrastructure. Explore projects, professional experience, and the person behind them.",
     type: "website",
     locale: "en_IN",
     siteName: "Pratham Dagli",

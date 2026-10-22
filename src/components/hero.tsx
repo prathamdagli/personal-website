@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <section className="cover" ref={root} aria-labelledby="cover-title">
       <div className="cover-topline">
-        <span>SELECTED WORK & EXPERIMENTS / 2026</span>
+        <span>AI ENGINEERING & PROJECTS / 2026</span>
         <span>
           AHMEDABAD, INDIA <span className="red-dot" />
         </span>
@@ -63,7 +63,7 @@ export function Hero() {
         >
           <Image
             src="/portrait-editorial.png"
-            alt="Pratham Dagli, AI/ML and full-stack developer"
+            alt="Pratham Dagli, AI Engineering"
             width={1160}
             height={1355}
             loading="eager"
@@ -75,9 +75,7 @@ export function Hero() {
       <div className="cover-left">
         <span className="eyebrow">COMPUTER ENGINEERING / PDEU</span>
         <p>
-          AI / ML engineer.
-          <br />
-          Full-stack developer.
+          AI Engineering.
           <br />
           <span>Computer Engineering, class of 2028.</span>
         </p>
@@ -88,17 +86,17 @@ export function Hero() {
           <span className="scroll-rule" /> SCROLL TO DISCOVER{" "}
           <ArrowDown size={14} />
         </a>
-        <span className="cover-edition">SELECTED WORK / 2026</span>
+        <span className="cover-edition">SELECTED PROJECTS / 2026</span>
         <Link
           href="/work"
           className="round-cta"
-          aria-label="Explore selected work"
+          aria-label="Explore selected projects"
         >
           <ArrowUpRight size={28} />
           <span>
             EXPLORE
             <br />
-            THE WORK
+            PROJECTS
           </span>
         </Link>
       </div>

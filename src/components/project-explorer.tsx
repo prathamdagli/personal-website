@@ -3,12 +3,12 @@ import { useState } from "react";
 import { projects } from "@/lib/portfolio";
 import { ProjectCard } from "./project-card";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-const filters = ["All work", "Applied AI", "Full stack", "Data science"];
+const filters = ["All projects", "Applied AI", "AI systems", "Data science"];
 export function ProjectExplorer() {
-  const [filter, setFilter] = useState("All work");
+  const [filter, setFilter] = useState("All projects");
   const reduced = useReducedMotion();
   const visible = projects.filter(
-    (p) => filter === "All work" || p.category === filter,
+    (p) => filter === "All projects" || p.category === filter,
   );
   return (
     <>
@@ -21,16 +21,14 @@ export function ProjectExplorer() {
               className={f === filter ? "selected" : ""}
               onClick={() => {
                 setFilter(f);
-                document
-                  .getElementById("project-collection")
-                  ?.scrollIntoView({
-                    behavior: reduced ? "auto" : "smooth",
-                    block: "start",
-                  });
+                document.getElementById("project-collection")?.scrollIntoView({
+                  behavior: reduced ? "auto" : "smooth",
+                  block: "start",
+                });
               }}
             >
               {f}
-              {f === "All work" && <span>05</span>}
+              {f === "All projects" && <span>05</span>}
             </button>
           ))}
         </div>

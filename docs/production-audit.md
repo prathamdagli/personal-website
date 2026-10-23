@@ -19,6 +19,7 @@
 - Real browser navigation between Projects, About, Experience and Contact; project filtering; experience expansion; toolkit expansion; next-project links; all five workflow walkthroughs; dark-mode persistence across navigation; Write to me scroll/focus; copy-email feedback; invalid-email rejection; draft URL encoding; and copy-draft feedback.
 - Every case study renders with no observed horizontal overflow or unfinished content at the actual 1280px browser viewport. Browser error logs were empty during these checks.
 - The user explicitly authorized one real verification email to `prathamdagli11@gmail.com`. It was submitted through the browser form; Resend accepted it, the success message appeared, and fields reset. This verifies provider acceptance, not inbox/spam placement. See `qa/contact-email-success.jpg`.
+- GitHub reports a successful Vercel production deployment for commit `96f3ab7`. The public `/contact` page was checked after deployment: WhatsApp is present and Continue to email generates the correct Gmail/Outlook/email-app draft without a failed API submission. See `qa/live-email-composer.jpg`.
 - Resend configuration is saved only in ignored `.env.local`; no API key is committed. The supplied key is send-only, so domain enumeration is denied. The successful test used `Pratham Dagli <onboarding@resend.dev>` and the fixed owner recipient.
 
 ## Remaining external blockers / measurement limits

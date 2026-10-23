@@ -24,7 +24,7 @@ Edit project evidence/media in `src/data/projects.ts`, availability/Currently/ac
 
 ## Contact behavior
 
-“Write to me” scrolls to the form and focuses the name field. Direct sending uses `/api/contact` with validation, body limits, origin checks, honeypot and best-effort instance-local throttling. Configure `RESEND_API_KEY` and a verified `CONTACT_FROM` privately in `.env.local` and Vercel; see `.env.example`. No success is claimed without Resend acceptance. Gmail, Outlook, email-app and clipboard draft alternatives remain available. Real delivery remains unverified until credentials are configured.
+“Write to me” scrolls to the form and focuses the name field. Direct sending uses `/api/contact` with validation, body limits, origin checks, honeypot and best-effort instance-local throttling. Configure `RESEND_API_KEY` and `CONTACT_FROM` privately in `.env.local` and Vercel; see `.env.example`. One authorized local test was accepted by Resend. Live settings are still blocked by Vercel team permissions. Without configuration the form offers Gmail, Outlook, email-app and clipboard draft options; WhatsApp remains available throughout.
 
 Run `node --experimental-strip-types --test tests/contact-api.test.mjs tests/contact-draft.test.mjs`. With the site running on port 3000, use `node tests/audit-links.mjs http://localhost:3000` for HTTP/source checks. Run `node scripts/measure-js.mjs` after a build for total emitted JavaScript. These checks do not replace browser interaction tests.
 
@@ -32,7 +32,7 @@ Run `node --experimental-strip-types --test tests/contact-api.test.mjs tests/con
 
 Semantic landmarks, keyboard focus styles, a skip link, mobile navigation, reduced motion, optimized images, system/light/dark themes and static content pages. Projects use compact approved abstract covers with explicit case-study/repository links. All case studies retain interactive walkthroughs. GSAP/Lenis and the demand-rendered neural field are code split. Motion tokens live in `src/lib/motion.ts` and feed CSS variables.
 
-See [the phase report and complete placeholder checklist](docs/phase-report.md). Lighthouse, viewport screenshots, recordings, CLS and performance traces remain unmeasured because local browser use is disabled in Work settings.
+See [the latest production audit](docs/production-audit.md) for real browser checks, the successful authorized email test, configuration status and remaining measurements. Editable optional content is listed in [the phase checklist](docs/phase-report.md); unfinished values are hidden from visitors. Responsive viewport overrides did not apply in this browser session, so mobile rendering is not claimed as verified.
 
 ## Deployment
 

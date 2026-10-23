@@ -63,7 +63,7 @@ export default async function ProjectPage({
           <a href="#context">Problem</a>
           <a href="#system">Approach</a>
           <a href="#architecture">Architecture</a>
-          <a href="#results">Results</a>
+          <a href="#results">{p.results.length ? "Results" : "Scope"}</a>
         </nav>
         <div className="project-overview" data-reveal>
           <div>
@@ -110,18 +110,18 @@ export default async function ProjectPage({
           </div>
         </div>
         <dl className="case-facts">
-          <div>
+          {p.overview.role && <div>
             <dt>Role</dt>
             <dd>{p.overview.role}</dd>
-          </div>
-          <div>
+          </div>}
+          {p.overview.timeline && <div>
             <dt>Timeline</dt>
             <dd>{p.overview.timeline}</dd>
-          </div>
-          <div>
+          </div>}
+          {p.overview.team && <div>
             <dt>Team</dt>
             <dd>{p.overview.team}</dd>
-          </div>
+          </div>}
           <div>
             <dt>Impact / scope</dt>
             <dd>{p.impact}</dd>
@@ -184,9 +184,9 @@ export default async function ProjectPage({
           </div>
         </div>
         <section className="case-section" id="results">
-          <span className="eyebrow">05 / Results</span>
+          <span className="eyebrow">05 / {p.results.length ? "Results" : "Scope"}</span>
           <div>
-            <h2>Evidence before claims.</h2>
+            <h2>{p.results.length ? "What came out of it." : "Project scope."}</h2>
             {p.results.length ? (
               <ul>
                 {p.results.map((result) => (
@@ -194,44 +194,30 @@ export default async function ProjectPage({
                 ))}
               </ul>
             ) : (
-              <p>
-                [ADD VERIFIED RESULTS] Document the measured outcome, evaluation
-                method, or completed scope. No performance metrics have been
-                inferred.
-              </p>
+              <p>{p.impact}</p>
             )}
           </div>
         </section>
-        <section className="case-section">
+        {(p.learnings.length > 0 || p.nextSteps.length > 0) && <section className="case-section">
           <span className="eyebrow">06 / Learnings & next steps</span>
           <div>
             <h2>What I’d take forward.</h2>
-            {p.learnings.length ? (
+            {p.learnings.length > 0 && (
               <ul>
                 {p.learnings.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            ) : (
-              <p>
-                [ADD LEARNINGS] Add a technical decision, its tradeoff, and what
-                the project taught you.
-              </p>
             )}
-            {p.nextSteps.length ? (
+            {p.nextSteps.length > 0 && (
               <ul>
                 {p.nextSteps.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            ) : (
-              <p>
-                [ADD NEXT STEPS] Add the next experiment or improvement you
-                would prioritize.
-              </p>
             )}
           </div>
-        </section>
+        </section>}
         <div className="previous-project">
           <Link href={`/work/${previous.slug}`}>
             <ArrowLeft size={17} /> Previous project: {previous.title}

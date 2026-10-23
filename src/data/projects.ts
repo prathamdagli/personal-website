@@ -164,11 +164,11 @@ const projectRecords: Omit<
 export const projects: Project[] = projectRecords.map((project) => ({
   ...project,
   impact:
-    project.slug === "formula-one" ? "500+ races explored" : "[ADD METRIC]",
+    project.slug === "formula-one" ? "500+ races explored" : project.features[0],
   overview: {
-    role: "[ADD ROLE]",
-    timeline: "[ADD TIMELINE]",
-    team: "[ADD TEAM]",
+    role: "", // Add verified personal scope before publishing this fact.
+    timeline: "",
+    team: "",
   },
   media: {
     image: `/projects/${project.slug}/cover.webp`,

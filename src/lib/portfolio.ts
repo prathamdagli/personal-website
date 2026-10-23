@@ -22,7 +22,7 @@ export const experience: Experience[] = [
     description:
       "Building reusable AWS infrastructure and service accelerators in collaboration with the founding team.",
     logo: undefined, // TODO: add an approved local company logo path.
-    outcomes: ["[ADD VERIFIED OUTCOME]"],
+    outcomes: [], // Optional verified outcomes; never publish filler text.,
     bullets: [
       "Developing reusable AWS cloud infrastructure and accelerator frameworks to streamline service integration and reduce repetitive setup across products.",
       "Collaborating directly with the founding team to take features from concept to implementation across cloud infrastructure, frontend, and backend development.",
@@ -36,7 +36,7 @@ export const experience: Experience[] = [
     description:
       "Working across digital engagement and construction estimation, from LinkedIn content to detailed quantity takeoffs.",
     logo: undefined, // TODO: add an approved local company logo path.
-    outcomes: ["[ADD VERIFIED OUTCOME]"],
+    outcomes: [], // Optional verified outcomes; never publish filler text.,
     bullets: [
       "Managing LinkedIn content and scheduling to strengthen the company’s professional presence and digital engagement.",
       "Executed quantity takeoffs using On-Screen Takeoff (OST), processing approximately 200 drawing sheets across multiple construction trades.",
@@ -50,7 +50,7 @@ export const experience: Experience[] = [
     description:
       "Worked across the machine learning lifecycle, from preprocessing and model training to backend integration and deployment.",
     logo: undefined, // TODO: add an approved local company logo path.
-    outcomes: ["[ADD VERIFIED OUTCOME]"],
+    outcomes: [], // Optional verified outcomes; never publish filler text.,
     bullets: [
       "Built and deployed KNN and Logistic Regression models.",
       "Integrated model inference with RESTful APIs using FastAPI.",
@@ -64,7 +64,7 @@ export const experience: Experience[] = [
     description:
       "Contributed to community education and outreach, bringing the same care for real people that shapes my approach to software.",
     logo: undefined, // TODO: add an approved local company logo path.
-    outcomes: ["[ADD VERIFIED OUTCOME]"],
+    outcomes: [], // Optional verified outcomes; never publish filler text.,
     bullets: [
       "Tutored 30 underprivileged students in English and mathematics.",
       "Coordinated educational activities and community food distribution.",
@@ -77,7 +77,7 @@ export const experience: Experience[] = [
     description:
       "Helped students build a stronger understanding of Physics and prepare for their next academic step.",
     logo: undefined, // TODO: add an approved local company logo path.
-    outcomes: ["[ADD VERIFIED OUTCOME]"],
+    outcomes: [], // Optional verified outcomes; never publish filler text.,
     bullets: [
       "Tutored Class 11 and 12 students in Physics.",
       "Guided students in preparation for board exams and competitive entrance tests.",

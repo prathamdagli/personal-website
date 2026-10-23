@@ -62,12 +62,12 @@ export function CurrentlySection() {
       aria-labelledby="currently-title"
     >
       <div className="section-label">
-        <span>07 / Currently</span>
+        <span>06 / Currently</span>
         <span>Always in progress</span>
       </div>
       <SplitHeading id="currently-title" text="What has my attention." />
       <div className="currently-grid">
-        {Object.entries(siteConfig.currently).map(([label, value]) => (
+        {Object.entries(siteConfig.currently).filter(([, value]) => value.trim()).map(([label, value]) => (
           <article key={label}>
             <h3>{label}</h3>
             <p>{value}</p>
@@ -79,13 +79,15 @@ export function CurrentlySection() {
 }
 
 export function AchievementsSection() {
+  const published = siteConfig.achievements.filter(item => !item.placeholder);
+  if (!published.length) return null;
   return (
     <section
       className="container section achievements-section"
       aria-labelledby="achievements-title"
     >
       <div className="section-label">
-        <span>06 / Achievements & hackathons</span>
+        <span>07 / Achievements & hackathons</span>
         <span>Experiments beyond the classroom</span>
       </div>
       <SplitHeading
@@ -93,7 +95,7 @@ export function AchievementsSection() {
         text="Challenges worth taking on."
       />
       <div className="achievement-grid">
-        {siteConfig.achievements.map((item) => (
+        {published.map((item) => (
           <article key={item.title}>
             <span className="eyebrow">
               {item.year} / {item.placeholder ? "Details to add" : item.event}

@@ -98,7 +98,7 @@ export function AboutExperience() {
                 {entry.logo ? (
                   <Image src={entry.logo} alt={`${entry.company} logo`} width={38} height={38} />
                 ) : (
-                  <><span aria-hidden="true">{entry.company[0]}</span><small>Logo to add</small></>
+                  <span aria-hidden="true">{entry.company[0]}</span>
                 )}
               </div>
               <h3>

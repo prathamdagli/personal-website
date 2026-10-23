@@ -21,8 +21,11 @@ let controlledRegions = 0;
 for (const route of routes) {
   const response = await fetch(new URL(route, origin));
   assert.equal(response.status, 200, `${route} should load`);
-  const html = await response.text();
+  // Streamed Next responses contain JavaScript such as `a < a.length`;
+  // inspect rendered markup rather than interpreting script text as anchors.
+  const html = (await response.text()).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
   pages.set(route, html);
+  assert.doesNotMatch(html, /\[ADD\b|Logo to add/, `${route} must not publish unfinished content`);
   if (["/work", "/about", "/contact"].includes(route)) {
     const heading = html.slice(html.indexOf("<main"), html.indexOf("</h1>") + 5);
     assert.doesNotMatch(
@@ -144,6 +147,7 @@ assert.ok(
   pages.get("/contact").includes('id="contact-form"'),
   "Contact form anchor must exist",
 );
+assert.ok(pages.get("/contact").includes('href="https://wa.me/919537365499"'), "Contact must include the correct WhatsApp destination");
 const external = [
   ...new Set(
     links

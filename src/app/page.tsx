@@ -151,8 +151,8 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <AchievementsSection />
       <CurrentlySection />
+      <AchievementsSection />
       <ContactCta />
     </main>
   );

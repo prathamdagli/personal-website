@@ -1,0 +1,149 @@
+{
+  "limitation": "Viewport overrides were requested but the browser retained an actual 1280px viewport. These are repeated desktop checks; mobile/tablet/wide rendering is not verified.",
+  "checks": [
+    {
+      "width": 360,
+      "path": "/",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 360,
+      "path": "/work",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 360,
+      "path": "/about",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 360,
+      "path": "/contact",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 768,
+      "path": "/",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 768,
+      "path": "/work",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 768,
+      "path": "/about",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 768,
+      "path": "/contact",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "path": "/",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "path": "/work",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "path": "/about",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "path": "/contact",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1920,
+      "path": "/",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1920,
+      "path": "/work",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1920,
+      "path": "/about",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    },
+    {
+      "width": 1920,
+      "path": "/contact",
+      "brokenImages": 0,
+      "h1Count": 1,
+      "pageWidth": 1265,
+      "placeholderVisible": false,
+      "viewport": 1280
+    }
+  ]
+}

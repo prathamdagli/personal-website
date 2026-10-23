@@ -1,0 +1,51 @@
+{
+  "routes": 10,
+  "links": 288,
+  "sectionAnchors": 67,
+  "controlledRegions": 21,
+  "buttonDeclarationsWithActions": 16,
+  "resume": "valid PDF",
+  "external": [
+    {
+      "url": "https://github.com/prathamdagli",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://linkedin.com/in/pratham-dagli",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://wa.me/919537365499",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://github.com/prathamdagli/complaint_tracker_AI",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://credit-scoring-platform.vercel.app/",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://github.com/prathamdagli/credit-scoring-platform",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://github.com/prathamdagli/GreenHydro_Project",
+      "status": 200,
+      "result": "reachable"
+    },
+    {
+      "url": "https://github.com/prathamdagli/jobwemet",
+      "status": 200,
+      "result": "reachable"
+    }
+  ],
+  "limitation": "Source wiring and HTTP checks; live browser click tests were unavailable."
+}

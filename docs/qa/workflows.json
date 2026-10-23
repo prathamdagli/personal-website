@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "complaint-tracker",
+    "previous": "One request. Multiple ways in.",
+    "next": "Turn text into something useful.",
+    "changed": true
+  },
+  {
+    "slug": "creditscout",
+    "previous": "Start with the data someone chooses to share.",
+    "next": "Look for habits, not just history.",
+    "changed": true
+  },
+  {
+    "slug": "greenhydro",
+    "previous": "Bring production claims into one record.",
+    "next": "Look for inconsistent patterns.",
+    "changed": true
+  },
+  {
+    "slug": "jobwemet",
+    "previous": "Begin with someone’s experience.",
+    "next": "Make the skills visible.",
+    "changed": true
+  },
+  {
+    "slug": "formula-one",
+    "previous": "Take a wider view of the grid.",
+    "next": "Prepare the questions and the data.",
+    "changed": true
+  }
+]

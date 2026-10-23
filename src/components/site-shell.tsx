@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowUp, Menu, X } from "lucide-react";
 import { email, social } from "@/lib/portfolio";
+import { siteConfig } from "@/lib/site-config";
 import { ThemeToggle } from "./theme-toggle";
 
 const links = [
@@ -186,6 +187,9 @@ export function Footer() {
           <a href={social.linkedin} target="_blank" rel="noreferrer">
             LINKEDIN <ArrowUpRight size={14} />
           </a>
+          <a href={siteConfig.whatsapp.url} target="_blank" rel="noreferrer">
+            WHATSAPP <ArrowUpRight size={14} />
+          </a>
           <a href="#top" aria-label="Back to top">
             <ArrowUp size={18} />
           </a>
@@ -214,6 +218,9 @@ export function ContactCta() {
           <a href={`mailto:${email}`}>
             {email}
             <ArrowUpRight size={17} />
+          </a>
+          <a href={siteConfig.whatsapp.url} target="_blank" rel="noreferrer">
+            Chat on WhatsApp <ArrowUpRight size={17} />
           </a>
           <p>
             Thoughtful projects.

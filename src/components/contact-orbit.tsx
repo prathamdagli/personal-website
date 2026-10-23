@@ -12,8 +12,16 @@ import {
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { CopyEmail } from "@/components/contact-form";
 import { email, social } from "@/lib/portfolio";
+import { siteConfig } from "@/lib/site-config";
 
 const channels = [
+  {
+    name: "WhatsApp",
+    label: "Start a direct chat",
+    href: siteConfig.whatsapp.url,
+    note: `Chat with me directly on WhatsApp: ${siteConfig.whatsapp.number}.`,
+    external: true,
+  },
   {
     name: "GitHub",
     label: "Explore the code",

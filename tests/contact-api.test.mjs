@@ -97,3 +97,8 @@ test("instance-local throttle limits repeated valid submissions", async () => {
     assert.equal((await handle(request())).status, 200);
   assert.equal((await handle(request())).status, 429);
 });
+
+test("an incomplete provider response cannot produce a false success", async () => {
+  const response = await createContactHandler({ env, fetcher: async () => Response.json({}) })(request());
+  assert.equal(response.status, 502);
+});

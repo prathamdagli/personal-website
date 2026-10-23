@@ -8,10 +8,14 @@ export const siteConfig = {
   location: "Ahmedabad, India",
   timezone: "IST · UTC+5:30",
   resume: "/Pratham-Dagli-Resume.pdf",
+  whatsapp: {
+    number: "+91 95373 65499",
+    url: "https://wa.me/919537365499",
+  },
   currently: {
     building: "Reusable AWS infrastructure and service accelerators at Rivix.",
-    learning: "[ADD CURRENT LEARNING FOCUS]",
-    reading: "[ADD CURRENT BOOK OR ARTICLE]",
+    learning: "", // Optional: add a current learning focus when ready to publish.
+    reading: "", // Optional: add a current book or article when ready to publish.
   },
   achievements: [
     {

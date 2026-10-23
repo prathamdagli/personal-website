@@ -137,7 +137,8 @@ export function createContactHandler({
         }),
         signal: AbortSignal.timeout(10000),
       });
-      if (!response.ok)
+      const accepted = response.ok ? await response.json().catch(() => null) : null;
+      if (!response.ok || typeof accepted?.id !== "string" || !accepted.id)
         return Response.json(
           {
             error:

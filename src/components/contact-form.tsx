@@ -4,6 +4,7 @@ import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
 import { email } from "@/lib/portfolio";
 import { prepareContactDraft } from "@/lib/contact-draft";
+import { siteConfig } from "@/lib/site-config";
 
 export function ContactComposerLink() {
   const reduced = useReducedMotion();
@@ -55,7 +56,7 @@ export function CopyEmail() {
     </div>
   );
 }
-export function ContactForm() {
+export function ContactForm({ directDelivery = false }: { directDelivery?: boolean }) {
   const [topic, setTopic] = useState("A project idea");
   const [draft, setDraft] = useState<ReturnType<
     typeof prepareContactDraft
@@ -68,6 +69,7 @@ export function ContactForm() {
   } | null>(null);
   const draftPanel = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const inFlight = useRef(false);
   useEffect(() => {
     if (!draft) return;
     draftPanel.current?.focus({ preventScroll: true });
@@ -78,6 +80,7 @@ export function ContactForm() {
   }, [draft, reduced]);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (inFlight.current) return;
     const form = event.currentTarget;
     const nameInput = event.currentTarget.elements.namedItem(
       "name",
@@ -101,7 +104,9 @@ export function ContactForm() {
     const action = (event.nativeEvent as SubmitEvent).submitter?.getAttribute(
       "value",
     );
-    if (action !== "draft") {
+    const prepared = prepareContactDraft({ topic, name: String(data.get("name") ?? ""), email: String(data.get("email") ?? ""), message: String(data.get("message") ?? "") }, email);
+    if (action !== "draft" && directDelivery) {
+      inFlight.current = true;
       setSending(true);
       setDelivery(null);
       try {
@@ -117,10 +122,10 @@ export function ContactForm() {
           }),
           signal: AbortSignal.timeout(15000),
         });
-        const result = await response.json();
-        if (!response.ok)
+        const result = await response.json().catch(() => null);
+        if (!response.ok || result?.ok !== true)
           throw new Error(
-            result.error || "Your message could not be sent. Please try again.",
+            "Your message has not been sent. Please use one of the email options below, or chat on WhatsApp.",
           );
         setDelivery({
           kind: "success",
@@ -130,6 +135,7 @@ export function ContactForm() {
         form.reset();
         setTopic("A project idea");
       } catch (error) {
+        setDraft(prepared);
         setDelivery({
           kind: "error",
           message:
@@ -138,21 +144,12 @@ export function ContactForm() {
               : "The email service is taking too long. Please try again or prepare an email draft.",
         });
       } finally {
+        inFlight.current = false;
         setSending(false);
       }
       return;
     }
-    setDraft(
-      prepareContactDraft(
-        {
-          topic,
-          name: String(data.get("name") ?? ""),
-          email: String(data.get("email") ?? ""),
-          message: String(data.get("message") ?? ""),
-        },
-        email,
-      ),
-    );
+    setDraft(prepared);
     setCopyStatus("");
   }
   async function copyDraft() {
@@ -172,6 +169,7 @@ export function ContactForm() {
     <form
       id="contact-form"
       className="contact-form"
+      aria-busy={sending}
       onSubmit={submit}
       onChange={() => {
         setDraft(null);
@@ -196,6 +194,7 @@ export function ContactForm() {
                 name="topic"
                 value={t}
                 checked={topic === t}
+                disabled={sending}
                 onChange={() => setTopic(t)}
               />
               {t}
@@ -213,6 +212,7 @@ export function ContactForm() {
             autoComplete="name"
             required
             maxLength={100}
+            disabled={sending}
           />
         </label>
         <label>
@@ -224,6 +224,7 @@ export function ContactForm() {
             autoComplete="email"
             required
             maxLength={254}
+            disabled={sending}
           />
         </label>
       </div>
@@ -237,23 +238,25 @@ export function ContactForm() {
           minLength={10}
           maxLength={5000}
           rows={4}
+          disabled={sending}
         />
       </label>
       <div className="form-bottom">
         <p>
-          Send a message directly, or prepare a draft for your own email app.
+          {directDelivery ? "Send your message here, or use your preferred email app." : "Prepare your message, then send it with Gmail, Outlook or your email app."}
         </p>
         <button
           className="button button-primary"
           type="submit"
           name="action"
-          value="send"
+          value={directDelivery ? "send" : "draft"}
           disabled={sending}
         >
-          {sending ? "Sending…" : "Send message"} <ArrowUpRight size={17} />
+          {sending ? "Sending…" : directDelivery ? "Send message" : "Continue to email"} <ArrowUpRight size={17} />
         </button>
       </div>
-      <button
+      <div className="contact-secondary-actions">
+      {directDelivery && <button
         type="submit"
         name="action"
         value="draft"
@@ -261,7 +264,11 @@ export function ContactForm() {
         disabled={sending}
       >
         Or prepare an email draft <ArrowUpRight size={15} />
-      </button>
+      </button>}
+      <a className="text-link contact-whatsapp" href={siteConfig.whatsapp.url} target="_blank" rel="noreferrer">
+        Chat on WhatsApp <ArrowUpRight size={15} />
+      </a>
+      </div>
       {delivery && (
         <p
           className={`delivery-status delivery-${delivery.kind}`}

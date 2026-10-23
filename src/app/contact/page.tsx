@@ -4,6 +4,7 @@ import { ContactComposerLink, ContactForm } from "@/components/contact-form";
 import { ContactOrbit } from "@/components/contact-orbit";
 import { PageIntro } from "@/components/page-intro";
 import { siteConfig } from "@/lib/site-config";
+import { connection } from "next/server";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
     "Contact Pratham Dagli about applied AI, software projects, internships, and collaborations.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  await connection();
+  const directDelivery = Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_FROM);
   return (
     <main id="main">
       <PageIntro
@@ -35,7 +38,7 @@ export default function ContactPage() {
         <ContactOrbit />
         <div className="contact-composer">
           <span className="eyebrow">OR / GIVE THE IDEA SOME SHAPE</span>
-          <ContactForm />
+          <ContactForm directDelivery={directDelivery} />
         </div>
       </section>
       <div className="container contact-end">
